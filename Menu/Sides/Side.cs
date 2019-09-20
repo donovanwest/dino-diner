@@ -17,17 +17,35 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Gets and sets the price
         /// </summary>
-        public double Price { get; set; }
+        public double Price {
+            get
+            {
+                if (this.Size == Size.Large)
+                {
+                    return  1.95;
+                }
+                else if (this.Size == Size.Medium)
+                {
+                    return  1.45;
+                }
+                else
+                {
+                    return  0.99;
+                }
+            }
+            set {
+
+            } }
 
         /// <summary>
         /// Gets and sets the calories
         /// </summary>
-        public uint Calories { get; set; }
+        public virtual uint Calories { get; set; }
 
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public List<string> Ingredients { get; }
+        public virtual List<string> Ingredients { get; }
 
         /// <summary>
         /// Gets or sets the size
