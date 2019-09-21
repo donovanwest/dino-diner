@@ -1,15 +1,17 @@
-﻿using System.Collections.Generic;
+﻿/* DinoNuggets.cs
+ * Author: Donovan West
+ */
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
         private uint Nuggets = 6;
-
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// returns a list of all the ingredients"
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -19,13 +21,17 @@ namespace DinoDiner.Menu.Entrees
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// contructs the entree with the correct price and calories
+        /// </summary>
         public DinoNuggets()
         {
             this.Price = 4.25;
             this.Calories = Nuggets * 59;
         }
-
+        /// <summary>
+        /// adds a nugget
+        /// </summary>
         public void AddNugget()
         {
             Nuggets++;

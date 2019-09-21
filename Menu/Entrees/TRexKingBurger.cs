@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿/* TRexKingBurger.cs
+ * Author: Donovan West
+ */
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         private bool WholeWheatBun = true;
-        private bool Patties = true;
         private bool Pickle = true;
         private bool ketchup = true;
         private bool mustard = true;
@@ -13,11 +15,10 @@ namespace DinoDiner.Menu.Entrees
         private bool tomato = true;
         private bool onion = true;
         private bool mayo = true;
-
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// returns a list of all the ingredients"
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -33,48 +34,66 @@ namespace DinoDiner.Menu.Entrees
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// contructs the entree with the correct price and calories
+        /// </summary>
         public TRexKingBurger()
         {
             this.Price = 8.45;
             this.Calories = 728;
         }
-
+        /// <summary>
+        /// removes the bun
+        /// </summary>
         public void HoldBun()
         {
             this.WholeWheatBun = false;
         }
-
+        /// <summary>
+        /// removes the pickles
+        /// </summary>
         public void HoldPickle()
         {
             this.Pickle = false;
         }
-
+        /// <summary>
+        /// removes the catsup
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
-
+        /// <summary>
+        /// removes the mustard
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;
         }
-
+        /// <summary>
+        /// removes the lettuce
+        /// </summary>
         public void HoldLettuce()
         {
             this.lettuce = false;
         }
-
+        /// <summary>
+        /// removes the tomato
+        /// </summary>
         public void HoldTomato()
         {
             this.tomato = false;
         }
-
+        /// <summary>
+        /// removes the onion
+        /// </summary>
         public void HoldOnion()
         {
             this.onion = false;
         }
-
+        /// <summary>
+        /// removes the mayo
+        /// </summary>
         public void HoldMayo()
         {
             this.mayo = false;

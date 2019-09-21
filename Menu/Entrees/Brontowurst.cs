@@ -1,18 +1,20 @@
-﻿using System.Collections.Generic;
+﻿/* Brontowurst.cs
+ * Author: Donovan West
+ */
+
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class Brontowurst
+    public class Brontowurst : Entree
     {
-        private bool Brautwurst = true;
         private bool WholeWheatBun = true;
         private bool Peppers = true;
         private bool Onions = true;
-
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// returns a list of all the ingredients"
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -23,23 +25,31 @@ namespace DinoDiner.Menu.Entrees
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// contructs the entree with the correct price and calories
+        /// </summary>
         public Brontowurst()
         {
             this.Price = 5.36;
             this.Calories = 498;
         }
-
+        /// <summary>
+        /// removes the bun
+        /// </summary>
         public void HoldBun()
         {
             this.WholeWheatBun = false;
         }
-
+        /// <summary>
+        /// removes the peppers
+        /// </summary>
         public void HoldPeppers()
         {
             this.Peppers = false;
         }
-
+        /// <summary>
+        /// removes the onion
+        /// </summary>
         public void HoldOnion()
         {
             this.Onions = false;

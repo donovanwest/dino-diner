@@ -1,19 +1,20 @@
-﻿using System.Collections.Generic;
+﻿/* SteakosaurusBurger.cs
+ * Author: Donovan West
+ */
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         private bool WholeWheatBun = true;
-        private bool Pattie = true;
         private bool Pickle = true;
         private bool ketchup = true;
         private bool mustard = true;
-
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// returns a list of all the ingredients"
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -25,28 +26,38 @@ namespace DinoDiner.Menu.Entrees
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// contructs the entree with the correct price and calories
+        /// </summary>
         public SteakosaurusBurger()
         {
             this.Price = 5.15;
             this.Calories = 621;
         }
-
+        /// <summary>
+        /// removes the bun
+        /// </summary>
         public void HoldBun()
         {
             this.WholeWheatBun = false;
         }
-
+        /// <summary>
+        /// removes the pickles
+        /// </summary>
         public void HoldPickle()
         {
             this.Pickle = false;
         }
-
+        /// <summary>
+        /// removes the catsup
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
-
+        /// <summary>
+        /// removes the mustard
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;

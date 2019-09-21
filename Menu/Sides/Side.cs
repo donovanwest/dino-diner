@@ -1,10 +1,15 @@
-﻿using System;
+﻿/* Side.cs
+ * Author: Donovan West
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-
+    /// <summary>
+    /// enum describing the three sizes
+    /// </summary>
     public enum Size
     {
         Small,

@@ -1,19 +1,19 @@
-﻿using System.Collections.Generic;
+﻿/* VelociWrap.cs
+ * Author: Donovan West
+ */
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
-        private bool FlourTortilla = true;
-        private bool ChickenBreast = true;
         private bool RomaineLettuce = true;
         private bool CeasarDressing = true;
         private bool ParmesanCheese = true;
-
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// returns a list of all the ingredients"
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -24,23 +24,31 @@ namespace DinoDiner.Menu.Entrees
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// contructs the entree with the correct price and calories
+        /// </summary>
         public VelociWrap()
         {
             this.Price = 6.86;
             this.Calories = 356;
         }
-
+        /// <summary>
+        /// removes the dressing
+        /// </summary>
         public void HoldDressing()
         {
             this.CeasarDressing = false;
         }
-
+        /// <summary>
+        /// removes the lettuce
+        /// </summary>
         public void HoldLettuce()
         {
             this.RomaineLettuce = false;
         }
-
+        /// <summary>
+        /// removes the cheese
+        /// </summary>
         public void HoldCheese()
         {
             this.ParmesanCheese = false;
