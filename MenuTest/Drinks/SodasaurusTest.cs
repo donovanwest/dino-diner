@@ -1,7 +1,7 @@
 ﻿using Xunit;
 using DinoDiner.Menu.Drinks;
 using System.Collections.Generic;
-namespace DinoDiner.MenuTest.Drinks
+namespace MenuTest.Drinks
 {
     public class SodasaurusTest
     {
