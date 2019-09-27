@@ -1,7 +1,7 @@
 ﻿using Xunit;
 using DinoDiner.Menu.Drinks;
-using DinoDiner.Menu.Sides;
-namespace DinoDiner.MenuTest.Sides
+using System.Collections.Generic;
+namespace DinoDiner.MenuTest.Drinks
 {
     public class SodasaurusTest
     {
@@ -99,6 +99,64 @@ namespace DinoDiner.MenuTest.Sides
             SodaSaurus soda = new SodaSaurus();
             soda.Size = Size.Large;
             Assert.Equal<double>(2.50, soda.Price);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectDefaultIce()
+        {
+            SodaSaurus soda = new SodaSaurus();
+            Assert.True(soda.Ice);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToRemoveIce()
+        {
+            SodaSaurus soda = new SodaSaurus();
+            soda.HoldIce();
+            Assert.False(soda.Ice);
+        }
+
+        [Fact]
+        public void ShouldHaveCoreectIngredientsList()
+        {
+            SodaSaurus soda = new SodaSaurus();
+            List<string> ingredients = soda.Ingredients;
+            Assert.Contains<string>("Water", ingredients);
+            Assert.Contains<string>("Natural Flavors", ingredients);
+            Assert.Contains<string>("Cane Sugar", ingredients);
+            Assert.Equal<int>(3, ingredients.Count);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectDefaultCalories()
+        {
+            SodaSaurus soda = new SodaSaurus();
+            Assert.Equal<double>(112, soda.Calories);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectCaloriesForSmall()
+        {
+            SodaSaurus soda = new SodaSaurus();
+            soda.Size = Size.Medium;
+            soda.Size = Size.Small;
+            Assert.Equal<double>(112, soda.Calories);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectCaloriesForMedium()
+        {
+            SodaSaurus soda = new SodaSaurus();
+            soda.Size = Size.Medium;
+            Assert.Equal<double>(156, soda.Calories);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectCaloriesForLarge()
+        {
+            SodaSaurus soda = new SodaSaurus();
+            soda.Size = Size.Large;
+            Assert.Equal<double>(208, soda.Calories);
         }
     }
 }

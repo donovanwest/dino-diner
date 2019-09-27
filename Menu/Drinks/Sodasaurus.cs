@@ -2,40 +2,57 @@
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu.Sides;
+
 namespace DinoDiner.Menu.Drinks
 {
-    public class SodaSaurus
+    public class SodaSaurus : Drink
     {
         public SodaSaurusFlavor Flavor;
-        private Size size;
-        public Size Size
-        {
-            get
+        public override double Price { get
             {
-                return size;
+                if (Size == Size.Medium)
+                {
+                    return 2;
+                }
+                else if (Size == Size.Small)
+                {
+                    return 1.50;
+                }
+                else
+                {
+                    return 2.50;
+                }
             }
             set
             {
-                size = value;
-                if (size == Size.Medium)
-                {
-                    Price = 2;
-                    Calories = 156;
-                }
-                if (size == Size.Small)
-                {
-                    Price = 1.50;
-                    Calories = 112;
-                }
-                if (size == Size.Large)
-                {
-                    Price = 2.50;
-                    Calories = 208;
-                }
+
             }
         }
-        public double Price = 1.50;
-        public uint Calories = 112;
+        public override uint Calories { get
+            {
+                if (Size == Size.Medium)
+                {
+                    return 156;
+                }
+                else if (Size == Size.Small)
+                {
+                    return 112;
+                }
+                else
+                {
+                    return 208;
+                }
+            }
+            set
+            {
+
+            }
+        }
+
+        public override List<string> Ingredients { get
+            {
+                return new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
+            } }
 
     }
 }
