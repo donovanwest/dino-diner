@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*Sodasaurus.cs
+ * Author: Donovan West
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +9,13 @@ namespace DinoDiner.Menu.Drinks
 {
     public class SodaSaurus : Drink
     {
+        /// <summary>
+        /// The flavor of the soda. can be Cola, Cherry, Vanilla, Chocolate, Lime, Orange, or Rootbeer.
+        /// </summary>
         public SodaSaurusFlavor Flavor;
+        /// <summary>
+        /// the price of the soda
+        /// </summary>
         public override double Price { get
             {
                 if (Size == Size.Medium)
@@ -27,6 +36,9 @@ namespace DinoDiner.Menu.Drinks
 
             }
         }
+        /// <summary>
+        /// the calories of the soda
+        /// </summary>
         public override uint Calories { get
             {
                 if (Size == Size.Medium)
@@ -47,7 +59,9 @@ namespace DinoDiner.Menu.Drinks
 
             }
         }
-
+        /// <summary>
+        /// the list of ingredients in the soda
+        /// </summary>
         public override List<string> Ingredients { get
             {
                 return new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*JurrasicJava.cs
+ * Author: Donovan West
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,11 +11,19 @@ namespace DinoDiner.Menu.Drinks
     {
         public JurrasicJava()
         {
-            Ice = false;
+            this.HoldIce();
         }
-
+        /// <summary>
+        /// Whether or not there is room for cream
+        /// </summary>
         public bool RoomForCream { get; set; } = false;
+        /// <summary>
+        /// Whether or not the coffe is decaf
+        /// </summary>
         public bool Decaf { get; set; } = false;
+        /// <summary>
+        /// returns the price
+        /// </summary>
         public override double Price
         {
             get
@@ -35,21 +46,24 @@ namespace DinoDiner.Menu.Drinks
 
             }
         }
+        /// <summary>
+        /// the calories of the drink
+        /// </summary>
         public override uint Calories
         {
             get
             {
                 if (Size == Size.Medium)
                 {
-                    return 4;
+                    return 156;
                 }
                 else if (Size == Size.Small)
                 {
-                    return 2;
+                    return 112;
                 }
                 else
                 {
-                    return 8;
+                    return 208;
                 }
             }
             set
@@ -57,7 +71,9 @@ namespace DinoDiner.Menu.Drinks
 
             }
         }
-
+        /// <summary>
+        /// the list of ingredients in the coffee
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -65,12 +81,16 @@ namespace DinoDiner.Menu.Drinks
                 return new List<string>() { "Water", "Coffee" };
             }
         }
-
+        /// <summary>
+        /// leaves from for cream
+        /// </summary>
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
         }
-
+        /// <summary>
+        /// adds ice
+        /// </summary>
         public void AddIce()
         {
             Ice = true;

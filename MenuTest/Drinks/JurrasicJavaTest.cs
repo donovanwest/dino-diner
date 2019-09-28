@@ -62,7 +62,20 @@ namespace MenuTest.Drinks
             Assert.Equal<int>(2, ingredients.Count);
         }
 
- ///////////////////////////////////need other ingredients////////////////////////////////////////////////
+        [Fact]
+        public void ShouldHaveCorrectDefaultRoomForCream()
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.False(java.RoomForCream);
+        }
+
+        [Fact]
+        public void ShouldChangeRoomForCream()
+        {
+            JurrasicJava java = new JurrasicJava();
+            java.LeaveRoomForCream();
+            Assert.True(java.RoomForCream);
+        }
 
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()

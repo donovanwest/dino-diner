@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*Water.cs
+ * Author: Donovan West
+ */ 
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +9,9 @@ namespace DinoDiner.Menu.Drinks
 {
     public class Water : Drink
     {
-
+        /// <summary>
+        /// whether or not there is lemon
+        /// </summary>
         public bool Lemon { get; set; }
         public override double Price
         {

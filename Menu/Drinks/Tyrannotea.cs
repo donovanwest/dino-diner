@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*Tyrannotea.cs
+ * Author: Donovan West
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,8 +9,17 @@ namespace DinoDiner.Menu.Drinks
 {
     public class Tyrannotea : Drink
     {
+        /// <summary>
+        /// Whether or not there is a lemon
+        /// </summary>
         public bool Lemon { get; set; } = false;
+        /// <summary>
+        /// Whether or not the tea is sweet
+        /// </summary>
         public bool Sweet { get; set; } = false;
+        /// <summary>
+        /// the price of the tea
+        /// </summary>
         public override double Price
         {
             get
@@ -30,6 +42,9 @@ namespace DinoDiner.Menu.Drinks
 
             }
         }
+        /// <summary>
+        /// the Calories of the tea
+        /// </summary>
         public override uint Calories
         {
             get
@@ -54,7 +69,9 @@ namespace DinoDiner.Menu.Drinks
 
             }
         }
-
+        /// <summary>
+        /// the list of ingredients of the tea""
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -65,12 +82,16 @@ namespace DinoDiner.Menu.Drinks
                 return i;
             }
         }
-
+        /// <summary>
+        /// Adds lemon
+        /// </summary>
         public void AddLemon()
         {
             Lemon = true;
         }
-
+        /// <summary>
+        /// adds sweetener
+        /// </summary>
         public void AddSweetener()
         {
             Sweet = true;
