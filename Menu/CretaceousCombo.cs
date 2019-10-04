@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿/* CretaceousCombo.cs
+ * Author: Donovan West
+ */
+
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo
+    public class CretaceousCombo : IMenuItem
     {
         public Entree Entree;
         public Drink Drink;
@@ -59,6 +63,31 @@ namespace DinoDiner.Menu
                 return i;
             }
         }
-       
-	}
+        /// <summary>
+        /// returns the name of the menu item
+        /// </summary>
+        public override string ToString()
+        {
+            if (Entree.GetType() == typeof(Brontowurst))
+                return "Brontowurst Combo";
+            if (Entree.GetType() == typeof(DinoNuggets))
+                return "Dino-Nuggets Combo";
+            if (Entree.GetType() == typeof(PrehistoricPBJ))
+                return "Prehistoric PB&J Combo";
+            if (Entree.GetType() == typeof(PterodactylWings))
+                return "Pterodactyl Wings Combo";
+            if (Entree.GetType() == typeof(SteakosaurusBurger))
+                return "Steakosaurus Burger Combo";
+            if (Entree.GetType() == typeof(TRexKingBurger))
+                return "T-Rex King Burger Combo";
+            if (Entree.GetType() == typeof(VelociWrap))
+                return "Veloci-Wrap Combo";
+
+
+            return "How did this happen?";
+
+            
+        }
+
+    }
 }

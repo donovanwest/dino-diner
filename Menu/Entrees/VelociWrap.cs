@@ -58,7 +58,7 @@ namespace DinoDiner.Menu
         /// Returns the name of the menu item
         /// </summary>
         public override string ToString(){
-            return "VelociWrap";
+            return "Veloci-Wrap";
         }
     }
 }

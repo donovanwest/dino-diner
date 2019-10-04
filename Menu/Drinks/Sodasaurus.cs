@@ -72,11 +72,11 @@ namespace DinoDiner.Menu
         /// </summary>
         public override string ToString(){
             if (Size == Size.Large)
-                return "Large Sodasaurus";
+                return $"Large {Flavor} Sodasaurus";
             else if (Size == Size.Medium)
-                return "Medium Sodasaurus";
+                return $"Medium {Flavor} Sodasaurus";
             else
-                return "Small Sodasaurus";
+                return $"Small {Flavor} Sodasaurus";
         }
     }
 }

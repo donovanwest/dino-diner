@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
         /// <summary>
         /// size of the drink, either Small, Medium, or Large

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Entree
+    public abstract class Entree : IMenuItem
     {
         /// <summary>
         /// the price of the entree
