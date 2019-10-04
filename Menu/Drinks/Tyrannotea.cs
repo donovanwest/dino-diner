@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     public class Tyrannotea : Drink
     {
@@ -95,6 +95,18 @@ namespace DinoDiner.Menu.Drinks
         public void AddSweetener()
         {
             Sweet = true;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item
+        /// </summary>
+        public override string ToString(){
+            if (Size == Size.Large)
+                return "Large Tyrannotea";
+            else if (Size == Size.Medium)
+                return "Medium Tyrannotea";
+            else
+                return "Small Tyrannotea";
         }
     }
 }

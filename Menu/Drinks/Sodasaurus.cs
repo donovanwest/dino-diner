@@ -5,14 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class SodaSaurus : Drink
+    public class Sodasaurus : Drink
     {
         /// <summary>
         /// The flavor of the soda. can be Cola, Cherry, Vanilla, Chocolate, Lime, Orange, or Rootbeer.
         /// </summary>
-        public SodaSaurusFlavor Flavor;
+        public SodasaurusFlavor Flavor;
         /// <summary>
         /// the price of the soda
         /// </summary>
@@ -67,5 +67,16 @@ namespace DinoDiner.Menu.Drinks
                 return new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
             } }
 
+        /// <summary>
+        /// Returns the name of the menu item
+        /// </summary>
+        public override string ToString(){
+            if (Size == Size.Large)
+                return "Large Sodasaurus";
+            else if (Size == Size.Medium)
+                return "Medium Sodasaurus";
+            else
+                return "Small Sodasaurus";
+        }
     }
 }

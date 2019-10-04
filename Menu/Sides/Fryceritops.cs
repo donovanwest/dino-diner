@@ -3,7 +3,7 @@
  */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     public class Fryceritops : Side
     {
@@ -39,5 +39,17 @@ namespace DinoDiner.Menu.Sides
                     return 222;
                 }
             } set => base.Calories = value; }
+
+        /// <summary>
+        /// Returns the name of the menu item
+        /// </summary>
+        public override string ToString(){
+            if (Size == Size.Large)
+                return "Large Fryceritops";
+            else if (Size == Size.Medium)
+                return "Medium Fryceritops";
+            else
+                return "Small Fryceritops";
+        }
     }
 }

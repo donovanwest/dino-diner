@@ -3,7 +3,7 @@
  */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     public class MeteorMacAndCheese : Side
     {
@@ -45,6 +45,18 @@ namespace DinoDiner.Menu.Sides
                 }
             }
             set => base.Calories = value;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item
+        /// </summary>
+        public override string ToString(){
+            if (Size == Size.Large)
+                return "Large Meteor Mac and Cheese";
+            else if (Size == Size.Medium)
+                return "Medium Meteor Mac and Cheese";
+            else
+                return "Small Meteor Mac and Cheese";
         }
     }
 }

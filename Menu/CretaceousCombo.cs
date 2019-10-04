@@ -1,7 +1,4 @@
 ﻿using System.Collections.Generic;
-using DinoDiner.Menu.Entrees;
-using DinoDiner.Menu.Drinks;
-using DinoDiner.Menu.Sides;
 
 namespace DinoDiner.Menu
 {
@@ -18,7 +15,7 @@ namespace DinoDiner.Menu
         {
             Entree = e;
             Side = new Fryceritops();
-            Drink = new SodaSaurus();
+            Drink = new Sodasaurus();
         }
 
         public Size Size

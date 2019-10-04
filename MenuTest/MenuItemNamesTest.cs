@@ -70,11 +70,11 @@ namespace MenuTest
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void FriceritopsToStringShouldGiveNameForSize(Size size)
+        public void FryceritopsToStringShouldGiveNameForSize(Size size)
         {
             Fryceritops ft = new Fryceritops();
             ft.Size = size;
-            Assert.Equal($"{size} Friceritops", ft.ToString());
+            Assert.Equal($"{size} Fryceritops", ft.ToString());
         }
 
         [Theory]
@@ -121,7 +121,7 @@ namespace MenuTest
         [InlineData(Size.Small, true)]
         [InlineData(Size.Medium, true)]
         [InlineData(Size.Large, true)]
-        public void JurrasicJavaToStringShouldGiveNameForSizeAndDecaf(Size size, bool decaf)
+        public void JurrasicjavaToStringShouldGiveNameForSizeAndDecaf(Size size, bool decaf)
         {
             JurassicJava java = new JurassicJava();
             java.Size = size;
@@ -153,7 +153,7 @@ namespace MenuTest
         [InlineData(Size.Large, SodasaurusFlavor.Orange)]
         [InlineData(Size.Large, SodasaurusFlavor.RootBeer)]
         [InlineData(Size.Large, SodasaurusFlavor.Vanilla)]
-        public void SodaSaurusToStringShouldGiveNameForSizeAndFlavor(Size size, SodasaurusFlavor flavor)
+        public void SodasaurusToStringShouldGiveNameForSizeAndFlavor(Size size, SodasaurusFlavor flavor)
         {
             Sodasaurus soda = new Sodasaurus();
             soda.Size = size;

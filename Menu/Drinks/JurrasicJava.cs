@@ -1,15 +1,15 @@
-﻿/*JurrasicJava.cs
+﻿/*Jurrasicjava.cs
  * Author: Donovan West
  */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
-        public JurrasicJava()
+        public JurassicJava()
         {
             this.HoldIce();
         }
@@ -96,5 +96,27 @@ namespace DinoDiner.Menu.Drinks
             Ice = true;
         }
 
+        /// <summary>
+        /// Returns the name of the menu item
+        /// </summary>
+        public override string ToString(){
+            if (Size == Size.Large)
+            {
+                if (!Decaf)
+                    return "Large Jurassic Java";
+                else
+                    return "Large Decaf Jurassic Java";
+            }
+            else if (Size == Size.Medium)
+                if (!Decaf)
+                    return "Medium Jurassic Java";
+                else
+                    return "Medium Decaf Jurassic Java";
+            else
+                if (!Decaf)
+                return "Small Jurassic Java";
+            else
+                return "Small Decaf Jurassic Java";
+        }
     }
 }

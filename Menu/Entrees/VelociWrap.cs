@@ -3,7 +3,7 @@
  */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     public class VelociWrap : Entree
     {
@@ -52,6 +52,13 @@ namespace DinoDiner.Menu.Entrees
         public void HoldCheese()
         {
             this.ParmesanCheese = false;
+        }
+
+        /// <summary>
+        /// Returns the name of the menu item
+        /// </summary>
+        public override string ToString(){
+            return "VelociWrap";
         }
     }
 }
