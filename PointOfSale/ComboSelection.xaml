@@ -12,16 +12,72 @@
         <WrapPanel.Resources>
             <Style TargetType="Button">
                 <Setter Property="Width" Value="180"/>
-                <Setter Property="Height" Value="140"/>
+                <Setter Property="Height" Value="180"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>Brontowurst Combo</Button>
-        <Button>Dino-Nuggets Combo</Button>
-        <Button>Steakosaurus Burger Combo</Button>
-        <Button>T-Rex King Burger Combo</Button>
-        <Button>Pterodactyl Wings Combo</Button>
-        <Button>Prehistoric PB&amp;J Combo</Button>
-        <Button>Veloci-Wrap Combo</Button>
+        
+        <Button Click="BrontosaurusCombo">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-01.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Brontosaurus Combo"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+        <Button Click="DinoNuggetsCombo">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-02.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Dino-Nuggets Combo"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+        <Button Click="SteakosaurusCombo">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-05.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Steakosaurus Combo"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+        <Button Click="TRexKingBurgerCombo">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-06.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="T-Rex King Burger"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+        <Button Click="PterodactyleWingsCombo">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-04.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Pterodactyle Wings"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+        <Button Click="PBJCombo">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-03.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="PB&amp;J Combo"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+        <Button Click="VelociwrapCombo">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-07.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Velociwrap Combo"/></TextBlock>
+            </DockPanel>
+        </Button>
 
     </WrapPanel>
 </Page>
