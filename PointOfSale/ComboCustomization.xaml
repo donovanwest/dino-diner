@@ -17,16 +17,16 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0">Combo</Button>
-        <Button Grid.Row="0" Grid.Column="1">Side</Button>
-        <Button Grid.Row="1" Grid.Column="0">Drink</Button>
+        <Button Name="Entree" Click="ChangeEntree" Grid.Row="0" Grid.Column="0">Entree</Button>
+        <Button Name="Side" Click="ChangeDrink" Grid.Row="0" Grid.Column="1">Side</Button>
+        <Button Name="Drink" Click="ChangeSide" Grid.Row="1" Grid.Column="0">Drink</Button>
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <RadioButton Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton GroupName="Size"  IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="5" ScaleY="5"/>
@@ -35,7 +35,7 @@
                 Small
             </RadioButton>
 
-            <RadioButton Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton GroupName="Size" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="5" ScaleY="5"/>
@@ -44,7 +44,7 @@
                 Medium
             </RadioButton>
 
-            <RadioButton Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton GroupName="Size" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="5" ScaleY="5"/>

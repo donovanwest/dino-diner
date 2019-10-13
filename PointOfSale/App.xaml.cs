@@ -13,5 +13,8 @@ namespace PointOfSale
     /// </summary>
     public partial class App : Application
     {
+        public static Entrees currentEntree;
+        public static Sides currentSide;
+        public static Drinks currentDrink;
     }
 }

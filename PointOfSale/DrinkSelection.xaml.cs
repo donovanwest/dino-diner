@@ -24,5 +24,22 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        private void SelectWater(object sender, RoutedEventArgs e)
+        {
+            App.currentDrink = Drinks.Water;
+        }
+        private void SelectJurrasicJava(object sender, RoutedEventArgs e)
+        {
+            App.currentDrink = Drinks.JurrasicJava;
+        }
+        private void SelectSodasaurus(object sender, RoutedEventArgs e)
+        {
+            App.currentDrink = Drinks.Sodasaurus;
+        }
+        private void SelectTyrannotea(object sender, RoutedEventArgs e)
+        {
+            App.currentDrink = Drinks.Tyrannotea;
+        }
     }
 }

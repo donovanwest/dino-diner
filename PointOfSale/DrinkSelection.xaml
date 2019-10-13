@@ -8,7 +8,88 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DrinkSelection">
 
-    <Grid>
-        
-    </Grid>
+    <WrapPanel>
+        <WrapPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="180"/>
+                <Setter Property="Height" Value="180"/>
+            </Style>
+            <Style TargetType="Grid">
+                <Setter Property="Width" Value="180"/>
+                <Setter Property="Height" Value="180"/>
+            </Style>
+        </WrapPanel.Resources>
+
+        <ToggleButton Name="Water" Click="SelectWater">
+            <ToggleButton.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-15.png"/>
+            </ToggleButton.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Water"/></TextBlock>
+            </DockPanel>
+        </ToggleButton>
+
+        <Button Name="Sodasaurus" Click="SelectSodasaurus">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-12.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Sodasaurus"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+        <Button Name="JurrasicJava" Click="SelectJurrasicJava">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-13.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Jurrasic Java"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+        <Button Name="Tyrannotea" Click="SelectTyrannotea">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Tyrannotea"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <RadioButton GroupName="Size"  IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+                <RadioButton.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="2.8" ScaleY="2.8"/>
+                    </TransformGroup>
+                </RadioButton.RenderTransform>
+                Small
+            </RadioButton>
+
+            <RadioButton GroupName="Size" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+                <RadioButton.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="2.8" ScaleY="2.8"/>
+                    </TransformGroup>
+                </RadioButton.RenderTransform>
+                Medium
+            </RadioButton>
+
+            <RadioButton GroupName="Size" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+                <RadioButton.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="2.8" ScaleY="2.8"/>
+                    </TransformGroup>
+                </RadioButton.RenderTransform>
+                Large
+            </RadioButton>
+        </Grid>
+
+
+    </WrapPanel>
 </Page>

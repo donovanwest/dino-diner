@@ -52,12 +52,12 @@
             </DockPanel>
         </Button>
 
-        <Button Click="PterodactyleWingsCombo">
+        <Button Click="PterodactylWingsCombo">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-04.png"/>
             </Button.Background>
             <DockPanel>
-                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Pterodactyle Wings"/></TextBlock>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Pterodactyl Wings"/></TextBlock>
             </DockPanel>
         </Button>
 
