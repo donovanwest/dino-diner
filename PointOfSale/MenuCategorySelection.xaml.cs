@@ -22,6 +22,7 @@ namespace PointOfSale
     {
         public MenuCategorySelection()
         {
+            App.PreviousPage = PreviousPages.MenuCategorySelection;
             InitializeComponent();
         }
 

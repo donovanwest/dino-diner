@@ -32,4 +32,10 @@ namespace PointOfSale
         Tyrannotea,
         Water
     }
+
+    public enum PreviousPages
+    {
+        MenuCategorySelection,
+        ComboCustomization,       
+    }
 }

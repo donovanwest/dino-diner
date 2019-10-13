@@ -16,5 +16,6 @@ namespace PointOfSale
         public static Entrees currentEntree;
         public static Sides currentSide;
         public static Drinks currentDrink;
+        public static PreviousPages PreviousPage;
     }
 }

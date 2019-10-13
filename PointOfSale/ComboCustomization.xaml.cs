@@ -23,6 +23,7 @@ namespace PointOfSale
         public ComboCustomization()
         {
             InitializeComponent();
+            App.PreviousPage = PreviousPages.ComboCustomization;
 
             switch (App.currentEntree) {
                 case Entrees.Brontowurst:
@@ -97,5 +98,10 @@ namespace PointOfSale
         {
             NavigationService.Navigate(new DrinkSelection());
         }
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MenuCategorySelection());
+        }
+
     }
 }

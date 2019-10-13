@@ -28,37 +28,58 @@ namespace PointOfSale
         private void Brontosaurus(object sender, RoutedEventArgs e)
         {
             App.currentEntree = Entrees.Brontowurst;
-            NavigationService.GoBack();
+            if(App.PreviousPage == PreviousPages.ComboCustomization)          
+                NavigationService.Navigate(new ComboCustomization());          
+            else           
+                NavigationService.Navigate(new MenuCategorySelection());
         }
         private void DinoNuggets(object sender, RoutedEventArgs e)
         {
             App.currentEntree = Entrees.DinoNuggets;
-            NavigationService.GoBack();
+            if (App.PreviousPage == PreviousPages.ComboCustomization)
+                NavigationService.Navigate(new ComboCustomization());
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
         }
         private void Steakosaurus(object sender, RoutedEventArgs e)
         {
             App.currentEntree = Entrees.Steakosaurus;
-            NavigationService.GoBack();
+            if (App.PreviousPage == PreviousPages.ComboCustomization)
+                NavigationService.Navigate(new ComboCustomization());
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
         }
         private void TRexKingBurger(object sender, RoutedEventArgs e)
         {
             App.currentEntree = Entrees.TRexKingBurger;
-            NavigationService.GoBack();
+            if (App.PreviousPage == PreviousPages.ComboCustomization)
+                NavigationService.Navigate(new ComboCustomization());
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
         }
         private void PterodactylWings(object sender, RoutedEventArgs e)
         {
             App.currentEntree = Entrees.PterodactylWings;
-            NavigationService.GoBack();
+            if (App.PreviousPage == PreviousPages.ComboCustomization)
+                NavigationService.Navigate(new ComboCustomization());
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
         }
         private void PBJ(object sender, RoutedEventArgs e)
         {
             App.currentEntree = Entrees.PrehistoricPBJ;
-            NavigationService.GoBack();
+            if (App.PreviousPage == PreviousPages.ComboCustomization)
+                NavigationService.Navigate(new ComboCustomization());
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
         }
         private void Velociwrap(object sender, RoutedEventArgs e)
         {
             App.currentEntree = Entrees.VelociWrap;
-            NavigationService.GoBack();
+            if (App.PreviousPage == PreviousPages.ComboCustomization)
+                NavigationService.Navigate(new ComboCustomization());
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

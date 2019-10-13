@@ -10,7 +10,7 @@
 
     <WrapPanel>
         <WrapPanel.Resources>
-            <Style TargetType="Button">
+            <Style TargetType="ToggleButton">
                 <Setter Property="Width" Value="180"/>
                 <Setter Property="Height" Value="180"/>
             </Style>
@@ -29,34 +29,34 @@
             </DockPanel>
         </ToggleButton>
 
-        <Button Name="Sodasaurus" Click="SelectSodasaurus">
-            <Button.Background>
+        <ToggleButton Name="Sodasaurus" Click="SelectSodasaurus">
+            <ToggleButton.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-12.png"/>
-            </Button.Background>
+            </ToggleButton.Background>
             <DockPanel>
                 <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Sodasaurus"/></TextBlock>
             </DockPanel>
-        </Button>
+        </ToggleButton>
 
-        <Button Name="JurrasicJava" Click="SelectJurrasicJava">
-            <Button.Background>
+        <ToggleButton Name="JurrasicJava" Click="SelectJurrasicJava">
+            <ToggleButton.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-13.png"/>
-            </Button.Background>
+            </ToggleButton.Background>
             <DockPanel>
                 <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Jurrasic Java"/></TextBlock>
             </DockPanel>
-        </Button>
+        </ToggleButton>
 
-        <Button Name="Tyrannotea" Click="SelectTyrannotea">
-            <Button.Background>
+        <ToggleButton Name="Tyrannotea" Click="SelectTyrannotea">
+            <ToggleButton.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-14.png"/>
-            </Button.Background>
+            </ToggleButton.Background>
             <DockPanel>
                 <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Tyrannotea"/></TextBlock>
             </DockPanel>
-        </Button>
+        </ToggleButton>
 
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" Background="LightGray">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -90,6 +90,41 @@
             </RadioButton>
         </Grid>
 
+        <ToggleButton Name="Lemon" Click="Lemon_Click" IsEnabled="False">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Add Lemon"/></TextBlock>
+            </DockPanel>
+        </ToggleButton>
+
+        <ToggleButton Name="Ice" Click="Ice_Click" IsEnabled="False">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Add Ice"/></TextBlock>
+            </DockPanel>
+        </ToggleButton>
+
+        <ToggleButton Name="Decaf" Click="Decaf_Click" IsEnabled="False">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Decaf"/></TextBlock>
+            </DockPanel>
+        </ToggleButton>
+
+        <ToggleButton Name="Sweet" Click="Sweet_Click" IsEnabled="False">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Add Sweetener"/></TextBlock>
+            </DockPanel>
+        </ToggleButton>
+
+        <Button Name="SodaFlavor" Click="Flavor_Click" IsEnabled="False" Height="180" Width="180">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Sodasaurus Flavor"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+        <Button Name="Confirm" Click="Confirm_Click" IsEnabled="False" Height="180" Width="180">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Confirm"/></TextBlock>
+            </DockPanel>
+        </Button>
 
     </WrapPanel>
 </Page>

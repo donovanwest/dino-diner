@@ -5,11 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1000"
       Title="ComboCustomization">
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -17,10 +18,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Name="Entree" Click="ChangeEntree" Grid.Row="0" Grid.Column="0">Entree</Button>
-        <Button Name="Side" Click="ChangeDrink" Grid.Row="0" Grid.Column="1">Side</Button>
-        <Button Name="Drink" Click="ChangeSide" Grid.Row="1" Grid.Column="0">Drink</Button>
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Button Name="Entree" Click="ChangeEntree" Grid.Row="0" Grid.Column="0" FontSize="50">Entree</Button>
+        <Button Name="Side" Click="ChangeSide" Grid.Row="0" Grid.Column="1" FontSize="50">Side</Button>
+        <Button Name="Drink" Click="ChangeDrink" Grid.Row="1" Grid.Column="0" FontSize="50">Drink</Button>
+        <Grid Grid.Row="1" Grid.Column="1" Background="LightGray">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -29,7 +30,7 @@
             <RadioButton GroupName="Size"  IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform ScaleX="5" ScaleY="5"/>
+                        <ScaleTransform ScaleX="4" ScaleY="4"/>
                     </TransformGroup>
                 </RadioButton.RenderTransform>
                 Small
@@ -38,7 +39,7 @@
             <RadioButton GroupName="Size" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform ScaleX="5" ScaleY="5"/>
+                        <ScaleTransform ScaleX="4" ScaleY="4"/>
                     </TransformGroup>
                 </RadioButton.RenderTransform>
                 Medium
@@ -47,11 +48,17 @@
             <RadioButton GroupName="Size" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform ScaleX="5" ScaleY="5"/>
+                        <ScaleTransform ScaleX="4" ScaleY="4"/>
                     </TransformGroup>
                 </RadioButton.RenderTransform>
                 Large
             </RadioButton>
         </Grid>
+
+        <Button Click="Confirm_Click" Grid.Row="0" Grid.Column="2">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="50" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Confirm"/></TextBlock>
+            </DockPanel>
+        </Button>
     </Grid>
 </Page>

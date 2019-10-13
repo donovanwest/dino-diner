@@ -18,12 +18,74 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0">Meteor Mac And Cheese</Button>
-        <Button Grid.Row="0" Grid.Column="1">Fryceritops</Button>
-        <Button Grid.Row="0" Grid.Column="2">MezzorellaSticks</Button>
-        <Button Grid.Row="1" Grid.Column="0">Triceritots</Button>
-        <Button Grid.Row="1" Grid.Column="3">Back</Button>
+        <Button Grid.Row="0" Grid.Column="0" Click="MeteorMacAndCheese_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-09.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Meteor Mac And Cheese"/></TextBlock>
+            </DockPanel>
+        </Button>
 
+        <Button Grid.Row="0" Grid.Column="1" Click="Fryceritops_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-08.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Fryceitops"/></TextBlock>
+            </DockPanel>
+        </Button>
+        
+        <Button Grid.Row="0" Grid.Column="2" Click="Triceritots_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-11.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Triceritots"/></TextBlock>
+            </DockPanel>
+        </Button>
+        
+        <Button Grid.Row="1" Grid.Column="0" Click="MezzorellaSticks_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-10.png"/>
+            </Button.Background>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Mezzorella Sticks"/></TextBlock>
+            </DockPanel>
+        </Button>
 
+        <Grid Grid.Row="1" Grid.Column="1" Background="LightGray">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <RadioButton GroupName="Size"  IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+                <RadioButton.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="4" ScaleY="4"/>
+                    </TransformGroup>
+                </RadioButton.RenderTransform>
+                Small
+            </RadioButton>
+
+            <RadioButton GroupName="Size" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+                <RadioButton.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="4" ScaleY="4"/>
+                    </TransformGroup>
+                </RadioButton.RenderTransform>
+                Medium
+            </RadioButton>
+
+            <RadioButton GroupName="Size" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+                <RadioButton.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="4" ScaleY="4"/>
+                    </TransformGroup>
+                </RadioButton.RenderTransform>
+                Large
+            </RadioButton>
+        </Grid>
     </Grid>
 </Page>

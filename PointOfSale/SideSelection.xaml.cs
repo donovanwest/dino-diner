@@ -24,5 +24,41 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        private void MeteorMacAndCheese_Click(object sender, RoutedEventArgs e)
+        {
+            App.currentSide = Sides.MeteorMacAndCheese;
+            if (App.PreviousPage == PreviousPages.ComboCustomization)
+                NavigationService.Navigate(new ComboCustomization());
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        private void Fryceritops_Click(object sender, RoutedEventArgs e)
+        {
+            App.currentSide = Sides.Fryceritops;
+            if (App.PreviousPage == PreviousPages.ComboCustomization)
+                NavigationService.Navigate(new ComboCustomization());
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        private void Triceritots_Click(object sender, RoutedEventArgs e)
+        {
+            App.currentSide = Sides.Triceritots;
+            if (App.PreviousPage == PreviousPages.ComboCustomization)
+                NavigationService.Navigate(new ComboCustomization());
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        private void MezzorellaSticks_Click(object sender, RoutedEventArgs e)
+        {
+            App.currentSide = Sides.MezzorellaSticks;
+            if (App.PreviousPage == PreviousPages.ComboCustomization)
+                NavigationService.Navigate(new ComboCustomization());
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
+        }
     }
 }
