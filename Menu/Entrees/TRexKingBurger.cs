@@ -34,6 +34,27 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
+
+        /// <summary>
+        /// gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!WholeWheatBun) special.Add("Hold Bun");
+                if (!Pickle) special.Add("Hold Pickle");
+                if (!ketchup) special.Add("Hold Ketchup");
+                if (!mustard) special.Add("Hold Mustard");
+                if (!lettuce) special.Add("Hold Lettuce");
+                if (!tomato) special.Add("Hold Tomato");
+                if (!onion) special.Add("Hold Onion");
+                if (!mayo) special.Add("Hold Mayo");
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// contructs the entree with the correct price and calories
         /// </summary>

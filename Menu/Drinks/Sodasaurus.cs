@@ -78,5 +78,26 @@ namespace DinoDiner.Menu
             else
                 return $"Small {Flavor} Sodasaurus";
         }
+
+        /// <summary>
+        /// Gets the description
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// gets any special preparation instructions
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
     }
 }

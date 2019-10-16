@@ -82,12 +82,29 @@ namespace DinoDiner.Menu
                 return "T-Rex King Burger Combo";
             if (Entree.GetType() == typeof(VelociWrap))
                 return "Veloci-Wrap Combo";
-
-
-            return "How did this happen?";
-
-            
+            return "How did this happen?";         
         }
 
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> specials = new List<string>();
+                specials.AddRange(Entree.Special);
+                specials.Add(Side.ToString());
+                //specials.AddRange(Side.Special);
+                specials.Add(Drink.ToString());
+               // specials.AddRange(Drink.Special);
+                return specials.ToArray();
+            }
+        }
     }
 }

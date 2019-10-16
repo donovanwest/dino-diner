@@ -9,8 +9,8 @@ namespace DinoDiner.Menu
     {
         private bool WholeWheatBun = true;
         private bool Pickle = true;
-        private bool ketchup = true;
-        private bool mustard = true;
+        private bool Ketchup = true;
+        private bool Mustard = true;
         /// <summary>
         /// returns a list of all the ingredients"
         /// </summary>
@@ -21,9 +21,25 @@ namespace DinoDiner.Menu
                 List<string> ingredients = new List<string>() { "Steakburger Pattie" };
                 if (WholeWheatBun) ingredients.Add("Whole Wheat Bun");
                 if (Pickle) ingredients.Add("Pickle");
-                if (ketchup) ingredients.Add("Ketchup");
-                if (mustard) ingredients.Add("Mustard");
+                if (Ketchup) ingredients.Add("Ketchup");
+                if (Mustard) ingredients.Add("Mustard");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!WholeWheatBun) special.Add("Hold Bun");
+                if (!Pickle) special.Add("Hold Pickle");
+                if (!Ketchup) special.Add("Hold Ketchup");
+                if (!Mustard) special.Add("Hold Mustard");
+                return special.ToArray();
             }
         }
         /// <summary>
@@ -53,14 +69,14 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldKetchup()
         {
-            this.ketchup = false;
+            this.Ketchup = false;
         }
         /// <summary>
         /// removes the mustard
         /// </summary>
         public void HoldMustard()
         {
-            this.mustard = false;
+            this.Mustard = false;
         }
 
         /// <summary>

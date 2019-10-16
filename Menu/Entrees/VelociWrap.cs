@@ -24,6 +24,23 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
+
+
+        /// <summary>
+        /// gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!RomaineLettuce) special.Add("Hold Lettuce");
+                if (!CeasarDressing) special.Add("Hold Dressing");
+                if (!ParmesanCheese) special.Add("Hold Cheese");
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// contructs the entree with the correct price and calories
         /// </summary>
