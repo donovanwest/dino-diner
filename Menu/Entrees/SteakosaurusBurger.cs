@@ -2,15 +2,23 @@
  * Author: Donovan West
  */
 using System.Collections.Generic;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {
-    public class SteakosaurusBurger : Entree
+    public class SteakosaurusBurger : Entree, INotifyPropertyChanged
     {
         private bool WholeWheatBun = true;
         private bool Pickle = true;
         private bool Ketchup = true;
         private bool Mustard = true;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helper funciton for notifiying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// returns a list of all the ingredients"
         /// </summary>
@@ -56,6 +64,7 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.WholeWheatBun = false;
+            NotifyOfPropertyChange("Special");
         }
         /// <summary>
         /// removes the pickles
@@ -63,6 +72,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.Pickle = false;
+            NotifyOfPropertyChange("Special");
+
         }
         /// <summary>
         /// removes the catsup
@@ -70,6 +81,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.Ketchup = false;
+            NotifyOfPropertyChange("Special");
+
         }
         /// <summary>
         /// removes the mustard
@@ -77,6 +90,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.Mustard = false;
+            NotifyOfPropertyChange("Special");
+
         }
 
         /// <summary>

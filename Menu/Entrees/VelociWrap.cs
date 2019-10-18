@@ -2,14 +2,23 @@
  * Author: Donovan West
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, INotifyPropertyChanged
     {
         private bool RomaineLettuce = true;
         private bool CeasarDressing = true;
         private bool ParmesanCheese = true;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helper funciton for notifiying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// returns a list of all the ingredients"
         /// </summary>
@@ -55,6 +64,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.CeasarDressing = false;
+            NotifyOfPropertyChange("Special");
+
         }
         /// <summary>
         /// removes the lettuce
@@ -62,6 +73,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.RomaineLettuce = false;
+            NotifyOfPropertyChange("Special");
+
         }
         /// <summary>
         /// removes the cheese
@@ -69,6 +82,8 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.ParmesanCheese = false;
+            NotifyOfPropertyChange("Special");
+
         }
 
         /// <summary>

@@ -4,11 +4,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, INotifyPropertyChanged
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        // Helper funciton for notifiying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// The flavor of the soda. can be Cola, Cherry, Vanilla, Chocolate, Lime, Orange, or Rootbeer.
         /// </summary>
@@ -79,18 +88,11 @@ namespace DinoDiner.Menu
                 return $"Small {Flavor} Sodasaurus";
         }
 
-        /// <summary>
-        /// Gets the description
-        /// </summary>
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
 
         /// <summary>
         /// gets any special preparation instructions
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

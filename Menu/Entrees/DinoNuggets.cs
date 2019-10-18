@@ -2,11 +2,20 @@
  * Author: Donovan West
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class DinoNuggets : Entree
+    public class DinoNuggets : Entree, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helper funciton for notifiying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         private uint Nuggets = 6;
         /// <summary>
         /// returns a list of all the ingredients"
@@ -30,7 +39,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (Nuggets != 6) special.Add(Nuggets + " Nuggets");               
+                if (Nuggets != 6) special.Add((Nuggets - 6) + " Extra Nuggets");               
                 return special.ToArray();
             }
         }
@@ -51,6 +60,7 @@ namespace DinoDiner.Menu
             Nuggets++;
             this.Price += 0.25;
             this.Calories += 59;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

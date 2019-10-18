@@ -4,11 +4,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        // Helper funciton for notifiying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// size of the drink, either Small, Medium, or Large
         /// </summary>
@@ -35,6 +43,14 @@ namespace DinoDiner.Menu
         public void HoldIce()
         {
             Ice = false;
+            NotifyOfPropertyChange("Special");
+        }
+
+        public virtual string Description { get { return this.ToString(); } }
+
+        public virtual string[] Special
+        {
+            get { return new string[0]; }
         }
     }
 }

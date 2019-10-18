@@ -3,14 +3,23 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, INotifyPropertyChanged
     {
         private bool WholeWheatBun = true;
         private bool Peppers = true;
         private bool Onions = true;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helper funciton for notifiying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// returns a list of all the ingredients"
         /// </summary>
@@ -55,6 +64,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.WholeWheatBun = false;
+            NotifyOfPropertyChange("Special");
+
         }
         /// <summary>
         /// removes the peppers
@@ -62,6 +73,8 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.Peppers = false;
+            NotifyOfPropertyChange("Special");
+
         }
         /// <summary>
         /// removes the onion
@@ -69,6 +82,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.Onions = false;
+            NotifyOfPropertyChange("Special");
+
         }
 
         /// <summary>

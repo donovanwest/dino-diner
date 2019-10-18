@@ -2,11 +2,19 @@
  * Author: Donovan West
  */
 using System.Collections.Generic;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {
-    public class PterodactylWings : Entree
+    public class PterodactylWings : Entree, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helper funciton for notifiying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// returns a list of all the ingredients"
         /// </summary>
@@ -18,6 +26,7 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
+
 
         /// <summary>
         /// gets any special preparation instructions

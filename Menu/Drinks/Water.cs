@@ -4,11 +4,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     public class Water : Drink
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        // Helper funciton for notifiying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// whether or not there is lemon
         /// </summary>
@@ -49,6 +57,7 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -61,6 +70,20 @@ namespace DinoDiner.Menu
                 return "Medium Water";
             else
                 return "Small Water";
+        }
+
+        /// <summary>
+        /// gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                if (Lemon) special.Add("Add Lemon");
+                return special.ToArray();
+            }
         }
 
     }

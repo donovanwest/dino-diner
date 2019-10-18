@@ -4,14 +4,23 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class JurassicJava : Drink
+    public class JurassicJava : Drink, INotifyPropertyChanged
     {
         public JurassicJava()
         {
             this.HoldIce();
+        }
+
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        // Helper funciton for notifiying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         /// <summary>
         /// Whether or not there is room for cream
@@ -87,6 +96,8 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
+
+            NotifyOfPropertyChange("Special");
         }
         /// <summary>
         /// adds ice
@@ -94,6 +105,8 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -117,6 +130,20 @@ namespace DinoDiner.Menu
                 return "Small Jurassic Java";
             else
                 return "Small Decaf Jurassic Java";
+        }
+
+        /// <summary>
+        /// gets any special preparation instructions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (RoomForCream) special.Add("Leave Room For Cream");
+                if (Ice) special.Add("Add Ice");
+                return special.ToArray();
+            }
         }
     }
 }
