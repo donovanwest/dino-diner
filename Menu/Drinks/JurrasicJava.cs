@@ -14,14 +14,6 @@ namespace DinoDiner.Menu
         {
             this.HoldIce();
         }
-
-        public override event PropertyChangedEventHandler PropertyChanged;
-
-        // Helper funciton for notifiying of property changes
-        private void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         /// <summary>
         /// Whether or not there is room for cream
         /// </summary>
@@ -96,7 +88,6 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
-
             NotifyOfPropertyChange("Special");
         }
         /// <summary>
@@ -105,7 +96,12 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChange("Special");
+        }
 
+        public void MakeDecaf()
+        {
+            Decaf = true;
             NotifyOfPropertyChange("Special");
         }
 
@@ -142,8 +138,11 @@ namespace DinoDiner.Menu
                 List<string> special = new List<string>();
                 if (RoomForCream) special.Add("Leave Room For Cream");
                 if (Ice) special.Add("Add Ice");
+                if (Decaf) special.Add("Decaf");
                 return special.ToArray();
             }
         }
+
+        public override string Description { get { return this.ToString(); } }
     }
 }

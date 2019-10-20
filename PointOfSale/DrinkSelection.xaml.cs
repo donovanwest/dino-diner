@@ -135,6 +135,9 @@ namespace PointOfSale
             else
                 NavigationService.Navigate(new MenuCategorySelection());
         }
+        /// <summary>
+        /// Unchecks and disables all the drink specific modifications to prepare for a new drink to be pressed
+        /// </summary>
         private void Uncheck()
         {
             Lemon.IsChecked = false;

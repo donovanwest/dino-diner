@@ -83,5 +83,63 @@ namespace MenuTest.Sides
             ms.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ms.Size);
         }
+
+        [Fact]
+        public void ChangingToSmallShouldNotifyOfPricePropertyChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            ms.Size = Size.Medium;
+            Assert.PropertyChanged(ms, "Price", () => { ms.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingToSmallShouldNotifyOfDescriptionPropertyChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            ms.Size = Size.Medium;
+            Assert.PropertyChanged(ms, "Description", () => { ms.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingToMediumShouldNotifyOfPricePropertyChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Price", () => { ms.Size = Size.Medium; });
+        }
+
+        [Fact]
+        public void ChangingToMediumShouldNotifyOfDescriptionPropertyChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Description", () => { ms.Size = Size.Medium; });
+        }
+
+        [Fact]
+        public void ChangingToLargeShouldNotifyOfPricePropertyChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Price", () => { ms.Size = Size.Large; });
+        }
+
+        [Fact]
+        public void ChangingToLargeShouldNotifyOfDescriptionPropertyChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Description", () => { ms.Size = Size.Large; });
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.Empty(ms.Special);
+        }
+
+        [Fact]
+        public void DescriptionMatchesToString()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.Equal(ms.Description, ms.ToString());
+        }
     }
 }

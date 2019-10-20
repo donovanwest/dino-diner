@@ -10,13 +10,6 @@ namespace DinoDiner.Menu
 {
     public class Water : Drink
     {
-        public override event PropertyChangedEventHandler PropertyChanged;
-
-        // Helper funciton for notifiying of property changes
-        private void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         /// <summary>
         /// whether or not there is lemon
         /// </summary>
@@ -85,6 +78,9 @@ namespace DinoDiner.Menu
                 return special.ToArray();
             }
         }
+
+        public override string Description { get { return this.ToString(); } }
+
 
     }
 }

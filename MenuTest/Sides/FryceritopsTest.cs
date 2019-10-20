@@ -86,5 +86,63 @@ namespace MenuTest.Sides
             ft.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ft.Size);
         }
+
+        [Fact]
+        public void ChangingToSmallShouldNotifyOfPricePropertyChange()
+        {
+            Fryceritops ft = new Fryceritops();
+            ft.Size = Size.Medium;
+            Assert.PropertyChanged(ft, "Price", () => { ft.Size = Size.Small; });          
+        }
+
+        [Fact]
+        public void ChangingToSmallShouldNotifyOfDescriptionPropertyChange()
+        {
+            Fryceritops ft = new Fryceritops();
+            ft.Size = Size.Medium;
+            Assert.PropertyChanged(ft, "Description", () => { ft.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingToMediumShouldNotifyOfPricePropertyChange()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Price", () => { ft.Size = Size.Medium; });
+        }
+
+        [Fact]
+        public void ChangingToMediumShouldNotifyOfDescriptionPropertyChange()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Description", () => { ft.Size = Size.Medium; });
+        }
+
+        [Fact]
+        public void ChangingToLargeShouldNotifyOfPricePropertyChange()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Price", () => { ft.Size = Size.Large; });
+        }
+
+        [Fact]
+        public void ChangingToLargeShouldNotifyOfDescriptionPropertyChange()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Description", () => { ft.Size = Size.Large; });
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.Empty(ft.Special);
+        }
+
+        [Fact]
+        public void DescriptionMatchesToString()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.Equal(ft.Description, ft.ToString());
+        }
     }
 }

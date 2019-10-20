@@ -9,13 +9,6 @@ namespace DinoDiner.Menu
 {
     public class Tyrannotea : Drink
     {
-        public override event PropertyChangedEventHandler PropertyChanged;
-
-        // Helper funciton for notifiying of property changes
-        private void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         /// <summary>
         /// Whether or not there is a lemon
         /// </summary>
@@ -127,8 +120,12 @@ namespace DinoDiner.Menu
                 List<string> special = new List<string>();
                 if (!Ice) special.Add("Hold Ice");
                 if (Lemon) special.Add("Add Lemon");
+                if (Sweet) special.Add("Add Sweetener");
                 return special.ToArray();
             }
         }
+
+        public override string Description { get { return this.ToString(); } }
+
     }
 }

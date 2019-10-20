@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem, IOrderItem
     {
         public Entree Entree;
         public Drink Drink;

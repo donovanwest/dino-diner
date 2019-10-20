@@ -10,17 +10,25 @@ namespace DinoDiner.Menu
 {
     public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
-        public virtual event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         // Helper funciton for notifiying of property changes
-        private void NotifyOfPropertyChange(string propertyName)
+        protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         /// <summary>
         /// size of the drink, either Small, Medium, or Large
         /// </summary>
-        public Size Size { get; set; }
+        public Size Size{ get { return size; } set
+            {
+                size = value;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
+            }
+        }
+
+        private Size size;
         /// <summary>
         /// the price of the drink
         /// </summary>

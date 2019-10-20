@@ -83,5 +83,63 @@ namespace MenuTest.Sides
             mmc.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, mmc.Size);
         }
+
+        [Fact]
+        public void ChangingToSmallShouldNotifyOfPricePropertyChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            mmc.Size = Size.Medium;
+            Assert.PropertyChanged(mmc, "Price", () => { mmc.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingToSmallShouldNotifyOfDescriptionPropertyChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            mmc.Size = Size.Medium;
+            Assert.PropertyChanged(mmc, "Description", () => { mmc.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingToMediumShouldNotifyOfPricePropertyChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Price", () => { mmc.Size = Size.Medium; });
+        }
+
+        [Fact]
+        public void ChangingToMediumShouldNotifyOfDescriptionPropertyChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Description", () => { mmc.Size = Size.Medium; });
+        }
+
+        [Fact]
+        public void ChangingToLargeShouldNotifyOfPricePropertyChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Price", () => { mmc.Size = Size.Large; });
+        }
+
+        [Fact]
+        public void ChangingToLargeShouldNotifyOfDescriptionPropertyChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Description", () => { mmc.Size = Size.Large; });
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.Empty(mmc.Special);
+        }
+
+        [Fact]
+        public void DescriptionMatchesToString()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.Equal(mmc.Description, mmc.ToString());
+        }
     }
 }

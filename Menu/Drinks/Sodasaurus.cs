@@ -10,18 +10,16 @@ namespace DinoDiner.Menu
 {
     public class Sodasaurus : Drink, INotifyPropertyChanged
     {
-        public override event PropertyChangedEventHandler PropertyChanged;
-
-        // Helper funciton for notifiying of property changes
-        private void NotifyOfPropertyChange(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         /// <summary>
         /// The flavor of the soda. can be Cola, Cherry, Vanilla, Chocolate, Lime, Orange, or Rootbeer.
         /// </summary>
-        public SodasaurusFlavor Flavor;
+        public SodasaurusFlavor Flavor { get { return flavor; } set
+            {
+                NotifyOfPropertyChange("Description");
+                flavor = value;
+            } }
+
+        private SodasaurusFlavor flavor;
         /// <summary>
         /// the price of the soda
         /// </summary>
@@ -101,5 +99,8 @@ namespace DinoDiner.Menu
                 return special.ToArray();
             }
         }
+
+        public override string Description { get { return ToString(); } }
+
     }
 }

@@ -83,5 +83,63 @@ namespace MenuTest.Sides
             tt.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, tt.Size);
         }
+
+        [Fact]
+        public void ChangingToSmallShouldNotifyOfPricePropertyChange()
+        {
+            Triceritots tt = new Triceritots();
+            tt.Size = Size.Medium;
+            Assert.PropertyChanged(tt, "Price", () => { tt.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingToSmallShouldNotifyOfDescriptionPropertyChange()
+        {
+            Triceritots tt = new Triceritots();
+            tt.Size = Size.Medium;
+            Assert.PropertyChanged(tt, "Description", () => { tt.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingToMediumShouldNotifyOfPricePropertyChange()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Price", () => { tt.Size = Size.Medium; });
+        }
+
+        [Fact]
+        public void ChangingToMediumShouldNotifyOfDescriptionPropertyChange()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Description", () => { tt.Size = Size.Medium; });
+        }
+
+        [Fact]
+        public void ChangingToLargeShouldNotifyOfPricePropertyChange()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Price", () => { tt.Size = Size.Large; });
+        }
+
+        [Fact]
+        public void ChangingToLargeShouldNotifyOfDescriptionPropertyChange()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Description", () => { tt.Size = Size.Large; });
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.Empty(tt.Special);
+        }
+
+        [Fact]
+        public void DescriptionMatchesToString()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.Equal(tt.Description, tt.ToString());
+        }
     }
 }

@@ -108,5 +108,124 @@ namespace MenuTest.Drinks
             java.Size = Size.Large;
             Assert.Equal<double>(208, java.Calories);
         }
+
+        [Fact]
+        public void ChangingToSmallShouldNotifyOfPricePropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            java.Size = Size.Medium;
+            Assert.PropertyChanged(java, "Price", () => { java.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingToSmallShouldNotifyOfDescriptionPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            java.Size = Size.Medium;
+            Assert.PropertyChanged(java, "Description", () => { java.Size = Size.Small; });
+        }
+
+        [Fact]
+        public void ChangingToMediumShouldNotifyOfPricePropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Price", () => { java.Size = Size.Medium; });
+        }
+
+        [Fact]
+        public void ChangingToMediumShouldNotifyOfDescriptionPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Description", () => { java.Size = Size.Medium; });
+        }
+
+        [Fact]
+        public void ChangingToLargeShouldNotifyOfPricePropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Price", () => { java.Size = Size.Large; });
+        }
+
+        [Fact]
+        public void ChangingToLargeShouldNotifyOfDescriptionPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Description", () => { java.Size = Size.Large; });
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.Empty(java.Special);
+        }
+
+        [Fact]
+        public void DescriptionMatchesToString()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.Equal(java.Description, java.ToString());
+        }
+
+        [Fact]
+        public void AddingIceShouldNotifyOfSpecialPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Special", () => {java.AddIce();});
+        }
+
+        [Fact]
+        public void MakingDecafShouldNotifyOfSpecialPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Special", () => { java.MakeDecaf(); });
+        }
+
+        [Fact]
+        public void LeavingRoomForCreamShouldNotifyOfSpecialPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Special", () => { java.LeaveRoomForCream(); });
+        }
+
+        [Fact]
+        public void SpecialShouldAddIce()
+        {
+            JurassicJava java = new JurassicJava();
+            java.AddIce();
+            Assert.Collection<string>(java.Special,
+                item => { Assert.Equal("Add Ice", item); });
+        }
+
+        [Fact]
+        public void SpecialShouldMakeDecaf()
+        {
+            JurassicJava java = new JurassicJava();
+            java.MakeDecaf();
+            Assert.Collection<string>(java.Special,
+                item => { Assert.Equal("Decaf", item); });
+        }
+
+        [Fact]
+        public void SpecialShouldLeaveRoomForCream()
+        {
+            JurassicJava java = new JurassicJava();
+            java.LeaveRoomForCream();
+            Assert.Collection<string>(java.Special,
+                item => { Assert.Equal("Leave Room For Cream", item); });
+        }
+
+        [Fact]
+        public void SpecialShouldHoldAllItems()
+        {
+            JurassicJava java = new JurassicJava();
+            java.AddIce();
+            java.MakeDecaf();
+            java.LeaveRoomForCream();
+            Assert.Contains<string>("Add Ice",java.Special);
+            Assert.Contains<string>("Decaf",java.Special);
+            Assert.Contains<string>("Leave Room For Cream",java.Special);
+            Assert.Equal<int>(3,java.Special.Length);
+        }
     }
 }

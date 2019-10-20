@@ -4,11 +4,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Side : IMenuItem, IOrderItem
+    public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Helper funciton for notifiying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Gets and sets the price
         /// </summary>
@@ -45,11 +53,21 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public Size Size { get; set; }
+        public Size Size { get { return size; } set
+            {
+                size = value;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
+            }
+        }
 
-        public virtual string Description { get { return this.ToString(); } }
+        private Size size;
 
-        public virtual string[] Special { get{ return new string[0]; }
+        public virtual string Description { get; }
 
+        public virtual string[] Special
+        {
+            get { return new string[0]; }
+        }
     }
 }

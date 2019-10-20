@@ -59,5 +59,9 @@ namespace DinoDiner.Menu
             else
                 return "Small Triceritots";
         }
+
+        public override string Description { get { return ToString(); } }
+
+        public override string[] Special { get { return new string[0]; } }
     }
 }

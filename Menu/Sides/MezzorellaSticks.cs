@@ -58,5 +58,9 @@ namespace DinoDiner.Menu
             else
                 return "Small Mezzorella Sticks";
         }
+
+        public override string Description { get { return ToString(); } }
+
+        public override string[] Special { get { return new string[0]; } }
     }
 }
