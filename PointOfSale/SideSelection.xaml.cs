@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
@@ -36,6 +36,15 @@ namespace PointOfSale
 
         private void Fryceritops_Click(object sender, RoutedEventArgs e)
         {
+            Order order = (Order)DataContext;
+            Fryceritops fr = new Fryceritops();
+            if (Small.IsChecked == true)
+                fr.Size = Size.Small;
+            else if (Medium.IsChecked == true)
+                fr.Size = Size.Medium;
+            else
+                fr.Size = Size.Large;
+            order.Items.Add(fr);
             App.currentSide = Sides.Fryceritops;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());

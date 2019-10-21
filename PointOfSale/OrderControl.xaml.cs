@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DinoDiner.Menu;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OrderControl : UserControl
     {
-        public MainWindow()
+        public OrderControl()
         {
             InitializeComponent();
-            Order order = (Order)DataContext;
-            Tyrannotea ty = new Tyrannotea();
-            ty.AddLemon();
-            ty.Size = Size.Large;
-            order.Items.Add(new Fryceritops());
-            order.Items.Add(ty);
         }
-
     }
 }

@@ -60,7 +60,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <RadioButton GroupName="Size"  IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton Name ="Small" GroupName="Size"  IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
@@ -69,7 +69,7 @@
                 Small
             </RadioButton>
 
-            <RadioButton GroupName="Size" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton Name="Medium" GroupName="Size" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
@@ -78,7 +78,7 @@
                 Medium
             </RadioButton>
 
-            <RadioButton GroupName="Size" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton Name="Large" GroupName="Size" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
