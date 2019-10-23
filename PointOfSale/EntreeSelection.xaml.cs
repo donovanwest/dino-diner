@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -25,39 +26,61 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        private void Brontosaurus(object sender, RoutedEventArgs e)
+        private void Brontowurst_Click(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order)
+            {
+                Brontowurst br = new Brontowurst();              
+                order.Items.Add(br);
+            }
+
             App.currentEntree = Entrees.Brontowurst;
             if(App.PreviousPage == PreviousPages.ComboCustomization)          
                 NavigationService.Navigate(new ComboCustomization());          
             else           
                 NavigationService.Navigate(new MenuCategorySelection());
         }
-        private void DinoNuggets(object sender, RoutedEventArgs e)
+        private void DinoNuggets_Click(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order)
+            {
+                DinoNuggets nuggies = new DinoNuggets();
+                order.Items.Add(nuggies);
+            }
+
             App.currentEntree = Entrees.DinoNuggets;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());
             else
                 NavigationService.Navigate(new MenuCategorySelection());
         }
-        private void Steakosaurus(object sender, RoutedEventArgs e)
+        private void Steakosaurus_Click(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order)
+            {
+                SteakosaurusBurger s = new SteakosaurusBurger();
+                order.Items.Add(s);
+            }
             App.currentEntree = Entrees.Steakosaurus;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());
             else
                 NavigationService.Navigate(new MenuCategorySelection());
         }
-        private void TRexKingBurger(object sender, RoutedEventArgs e)
+        private void TRexKingBurger_Click(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order)
+            {
+                TRexKingBurger trex = new TRexKingBurger();
+                order.Items.Add(trex);
+            }
             App.currentEntree = Entrees.TRexKingBurger;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());
             else
                 NavigationService.Navigate(new MenuCategorySelection());
         }
-        private void PterodactylWings(object sender, RoutedEventArgs e)
+        private void PterodactylWings_Click(object sender, RoutedEventArgs e)
         {
             App.currentEntree = Entrees.PterodactylWings;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
@@ -65,7 +88,7 @@ namespace PointOfSale
             else
                 NavigationService.Navigate(new MenuCategorySelection());
         }
-        private void PBJ(object sender, RoutedEventArgs e)
+        private void PBJ_Click(object sender, RoutedEventArgs e)
         {
             App.currentEntree = Entrees.PrehistoricPBJ;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
@@ -73,7 +96,7 @@ namespace PointOfSale
             else
                 NavigationService.Navigate(new MenuCategorySelection());
         }
-        private void Velociwrap(object sender, RoutedEventArgs e)
+        private void Velociwrap_Click(object sender, RoutedEventArgs e)
         {
             App.currentEntree = Entrees.VelociWrap;
             if (App.PreviousPage == PreviousPages.ComboCustomization)

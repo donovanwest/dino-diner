@@ -24,9 +24,32 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+        private Side Side;
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            Side = side;
+        }
 
         private void MeteorMacAndCheese_Click(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order)
+            {
+                MeteorMacAndCheese mac;
+                if (Side is MeteorMacAndCheese && Side != null)
+                    mac = (MeteorMacAndCheese)Side;
+                else
+                    mac = new MeteorMacAndCheese();
+                
+                if (Small.IsChecked == true)
+                    mac.Size = Size.Small;
+                else if (Medium.IsChecked == true)
+                    mac.Size = Size.Medium;
+                else
+                    mac.Size = Size.Large;
+                order.Items.Add(mac);
+            }
+
             App.currentSide = Sides.MeteorMacAndCheese;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());
@@ -36,15 +59,17 @@ namespace PointOfSale
 
         private void Fryceritops_Click(object sender, RoutedEventArgs e)
         {
-            Order order = (Order)DataContext;
-            Fryceritops fr = new Fryceritops();
-            if (Small.IsChecked == true)
-                fr.Size = Size.Small;
-            else if (Medium.IsChecked == true)
-                fr.Size = Size.Medium;
-            else
-                fr.Size = Size.Large;
-            order.Items.Add(fr);
+            if (DataContext is Order order)
+            {
+                Fryceritops fr = new Fryceritops();
+                if (Small.IsChecked == true)
+                    fr.Size = Size.Small;
+                else if (Medium.IsChecked == true)
+                    fr.Size = Size.Medium;
+                else
+                    fr.Size = Size.Large;
+                order.Items.Add(fr);
+            }
             App.currentSide = Sides.Fryceritops;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());
@@ -54,6 +79,18 @@ namespace PointOfSale
 
         private void Triceritots_Click(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order)
+            {
+                Triceritots tots = new Triceritots();
+                if (Small.IsChecked == true)
+                    tots.Size = Size.Small;
+                else if (Medium.IsChecked == true)
+                    tots.Size = Size.Medium;
+                else
+                    tots.Size = Size.Large;
+                order.Items.Add(tots);
+            }
+
             App.currentSide = Sides.Triceritots;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());
@@ -63,6 +100,18 @@ namespace PointOfSale
 
         private void MezzorellaSticks_Click(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order)
+            {
+                MezzorellaSticks ms = new MezzorellaSticks();
+                if (Small.IsChecked == true)
+                    ms.Size = Size.Small;
+                else if (Medium.IsChecked == true)
+                    ms.Size = Size.Medium;
+                else
+                    ms.Size = Size.Large;
+                order.Items.Add(ms);
+            }
+
             App.currentSide = Sides.MezzorellaSticks;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());

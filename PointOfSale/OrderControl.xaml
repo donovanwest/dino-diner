@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBox Grid.Row="0" Text="Order"/>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}">
+        <ListBox Name="OrderItems" Grid.Row="1" ItemsSource="{Binding Path=Items}" SelectionChanged="ListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
