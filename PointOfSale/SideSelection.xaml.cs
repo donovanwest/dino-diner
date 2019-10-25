@@ -29,24 +29,26 @@ namespace PointOfSale
         {
             InitializeComponent();
             Side = side;
+            if (side.Size == Size.Small)
+                Small.IsChecked = true;
+            else if (side.Size == Size.Medium)
+                Medium.IsChecked = true;
+            else
+                Large.IsChecked = true;
         }
 
         private void MeteorMacAndCheese_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
-                MeteorMacAndCheese mac;
-                if (Side is MeteorMacAndCheese && Side != null)
-                    mac = (MeteorMacAndCheese)Side;
-                else
-                    mac = new MeteorMacAndCheese();
-                
+                MeteorMacAndCheese mac = new MeteorMacAndCheese();             
                 if (Small.IsChecked == true)
                     mac.Size = Size.Small;
                 else if (Medium.IsChecked == true)
                     mac.Size = Size.Medium;
                 else
                     mac.Size = Size.Large;
+                
                 order.Items.Add(mac);
             }
 
@@ -117,6 +119,15 @@ namespace PointOfSale
                 NavigationService.Navigate(new ComboCustomization());
             else
                 NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        private void Small_Click(object sender, RoutedEventArgs e)
+        {
+            if(Side != null)
+            {
+                Side.Size = Size.Small;
+                
+            }
         }
     }
 }

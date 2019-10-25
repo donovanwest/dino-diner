@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -25,9 +26,12 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        private Drink drink;
+
         private void SelectWater(object sender, RoutedEventArgs e)
         {
             App.currentDrink = Drinks.Water;
+            drink = new Water();
             JurrasicJava.IsChecked = false;
             Sodasaurus.IsChecked = false;
             Tyrannotea.IsChecked = false;
@@ -47,6 +51,7 @@ namespace PointOfSale
         private void SelectJurrasicJava(object sender, RoutedEventArgs e)
         {
             App.currentDrink = Drinks.JurrasicJava;
+            drink = new JurassicJava();
             Sodasaurus.IsChecked = false;
             Tyrannotea.IsChecked = false;
             Water.IsChecked = false;
@@ -57,6 +62,7 @@ namespace PointOfSale
                 Ice.IsEnabled = true;
                 Decaf.IsEnabled = true;
                 Confirm.IsEnabled = true;
+                RoomForCream.IsEnabled = true;
             }
             else
             {
@@ -66,6 +72,7 @@ namespace PointOfSale
         private void SelectSodasaurus(object sender, RoutedEventArgs e)
         {
             App.currentDrink = Drinks.Sodasaurus;
+            drink = new Sodasaurus();
             JurrasicJava.IsChecked = false;
             Tyrannotea.IsChecked = false;
             Water.IsChecked = false;
@@ -85,6 +92,7 @@ namespace PointOfSale
         private void SelectTyrannotea(object sender, RoutedEventArgs e)
         {
             App.currentDrink = Drinks.Tyrannotea;
+            drink = new Tyrannotea();
             JurrasicJava.IsChecked = false;
             Sodasaurus.IsChecked = false;
             Water.IsChecked = false;
@@ -105,12 +113,37 @@ namespace PointOfSale
 
         private void Lemon_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Lemon.IsChecked == false)
+            {
+                if (drink is Water water)
+                {
+                    water.AddLemon();
+                    drink = water;
+                }
+                if (drink is Tyrannotea tea)
+                {
+                    tea.AddLemon();
+                    drink = tea;
+                }
+            }
+            else
+            {
+                if (drink is Water water)
+                {
+                    water.AddLemon();
+                    drink = water;
+                }
+                if (drink is Tyrannotea tea)
+                {
+                    tea.AddLemon();
+                    drink = tea;
+                }
+            }
         }
 
         private void Ice_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void Decaf_Click(object sender, RoutedEventArgs e)
@@ -130,6 +163,43 @@ namespace PointOfSale
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            Size size;
+            if (Small.IsChecked == true)
+                size = Size.Small;
+            else if (Medium.IsChecked == true)
+                size = Size.Medium;
+            else
+                size = Size.Large;
+                  
+            if (Water.IsChecked == true)
+            {
+                Water water = new Water();
+                water.Size = size;
+                if (Lemon.IsChecked == true)
+                    water.AddLemon();
+                if (Ice.IsChecked == false)
+                    water.HoldIce();
+                if(DataContext is Order order)
+                    order.Items.Add(water);
+            }
+            else if (Sodasaurus.IsChecked == true)
+            {
+                Sodasaurus soda = new Sodasaurus();
+                soda.Size = size;
+                if (Ice.IsChecked == false)
+                    soda.HoldIce();
+                if (DataContext is Order order)
+                    order.Items.Add(soda);
+            }
+            else if (Tyrannotea.IsChecked == true)
+            {
+
+            }
+            else if (JurrasicJava.IsChecked == true)
+            {
+
+            }
+
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());
             else
@@ -144,6 +214,7 @@ namespace PointOfSale
             Ice.IsChecked = false;
             Decaf.IsChecked = false;
             Sweet.IsChecked = false;
+            RoomForCream.IsChecked = false;
 
             Lemon.IsEnabled = false;
             Ice.IsEnabled = false;
@@ -151,6 +222,12 @@ namespace PointOfSale
             SodaFlavor.IsEnabled = false;
             Sweet.IsEnabled = false;
             Confirm.IsEnabled = false;
+            RoomForCream.IsEnabled = true;
+        }
+
+        private void RoomForCream_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

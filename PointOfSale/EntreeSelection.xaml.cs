@@ -82,6 +82,11 @@ namespace PointOfSale
         }
         private void PterodactylWings_Click(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order)
+            {
+                PterodactylWings wings = new PterodactylWings();
+                order.Items.Add(wings);
+            }
             App.currentEntree = Entrees.PterodactylWings;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());
@@ -90,6 +95,11 @@ namespace PointOfSale
         }
         private void PBJ_Click(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order)
+            {
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                order.Items.Add(pbj);
+            }
             App.currentEntree = Entrees.PrehistoricPBJ;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());
@@ -98,6 +108,11 @@ namespace PointOfSale
         }
         private void Velociwrap_Click(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order)
+            {
+                VelociWrap wrap = new VelociWrap();
+                order.Items.Add(wrap);
+            }
             App.currentEntree = Entrees.VelociWrap;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization());

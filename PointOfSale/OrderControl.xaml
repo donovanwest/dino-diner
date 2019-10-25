@@ -11,6 +11,8 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -22,7 +24,15 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Path=Description}"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding Path=Description}"/>
+                            <Button Grid.Column ="1" Click="OnRemoveItem" Background="Red" FontWeight="Bold">X</Button>
+                        </Grid>
+                        
                         <ListBox ItemsSource="{Binding Path=Special}"/>
                     </StackPanel>
                 </DataTemplate>
@@ -30,11 +40,23 @@
         </ListBox>
         <Border Grid.Row="2">
             <StackPanel Orientation="Horizontal" Background="White">
+                <TextBlock Text="Subtotal: "/>
+                <TextBlock Text="{Binding Path=SubtotalCost}"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="3">
+            <StackPanel Orientation="Horizontal" Background="White">
+                <TextBlock Text="Sales Tax: "/>
+                <TextBlock Text="{Binding Path=SalesTaxCost}"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="4">
+            <StackPanel Orientation="Horizontal" Background="White">
             <TextBlock Text="Price: "/>
-            <TextBlock Text="$$$$$ "/>
+            <TextBlock Text="{Binding Path=TotalCost}"/>
             </StackPanel>
         </Border>
 
-        <TextBox Grid.Row="3" Text="Buttons Go Here"/>
+        <TextBox Grid.Row="5" Text="Buttons Go Here"/>
     </Grid>
 </UserControl>

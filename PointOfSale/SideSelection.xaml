@@ -60,7 +60,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <RadioButton Name ="Small" GroupName="Size"  IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton Name ="Small" Click="Small_Click" GroupName="Size"  IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>

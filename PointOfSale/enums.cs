@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PointOfSale
 {
+    /// <summary>
+    /// All the possible Entrees
+    /// </summary>
     public enum Entrees
     {
         Brontowurst,
@@ -16,7 +19,9 @@ namespace PointOfSale
         TRexKingBurger,
         VelociWrap
     }
-
+    /// <summary>
+    /// All the possible Sides
+    /// </summary>
     public enum Sides
     {
         Fryceritops,
@@ -24,7 +29,9 @@ namespace PointOfSale
         MezzorellaSticks,
         Triceritots
     }
-
+    /// <summary>
+    /// all the possible drinks
+    /// </summary>
     public enum Drinks
     {
         JurrasicJava,
@@ -32,7 +39,9 @@ namespace PointOfSale
         Tyrannotea,
         Water
     }
-
+    /// <summary>
+    /// keeps track of what the previous page was
+    /// </summary>
     public enum PreviousPages
     {
         MenuCategorySelection,

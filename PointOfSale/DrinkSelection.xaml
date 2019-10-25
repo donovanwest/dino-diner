@@ -62,7 +62,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <RadioButton GroupName="Size"  IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton GroupName="Size" Name="Small" IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="2.8" ScaleY="2.8"/>
@@ -71,7 +71,7 @@
                 Small
             </RadioButton>
 
-            <RadioButton GroupName="Size" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton GroupName="Size" Name="Medium" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="2.8" ScaleY="2.8"/>
@@ -80,7 +80,7 @@
                 Medium
             </RadioButton>
 
-            <RadioButton GroupName="Size" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton GroupName="Size" Name="Large" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="2.8" ScaleY="2.8"/>
@@ -105,6 +105,12 @@
         <ToggleButton Name="Decaf" Click="Decaf_Click" IsEnabled="False">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Decaf"/></TextBlock>
+            </DockPanel>
+        </ToggleButton>
+
+        <ToggleButton Name="RoomForCream" Click="RoomForCream_Click" IsEnabled="False">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Leave Room For Cream"/></TextBlock>
             </DockPanel>
         </ToggleButton>
 

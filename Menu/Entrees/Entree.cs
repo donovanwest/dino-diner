@@ -2,6 +2,7 @@
  * Author: Donovan West
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -23,5 +24,7 @@ namespace DinoDiner.Menu
         public virtual string Description { get { return this.ToString(); } }
 
         public abstract string[] Special { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

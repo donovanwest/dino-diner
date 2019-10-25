@@ -3,6 +3,7 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -12,6 +13,8 @@ namespace DinoDiner.Menu
         public Drink Drink;
         public Side Side;
         private Size size = Size.Small;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private CretaceousCombo() { }
 
