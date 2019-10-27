@@ -1,57 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* SodasaurusFlavorSelection.xaml.cs
+ * Author: Donovan West
+ */ 
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
     /// <summary>
     /// Interaction logic for SodasaurusFalavorSelection.xaml
     /// </summary>
-    public partial class SodasaurusFalavorSelection : Page
+    public partial class SodasaurusFlavorSelection : Page
     {
-        public SodasaurusFalavorSelection()
+        private Sodasaurus soda;
+        public SodasaurusFlavorSelection(Sodasaurus Soda)
         {
             InitializeComponent();
+            soda = Soda;
         }
 
         private void Cola_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            soda.Flavor = SodasaurusFlavor.Cola;
+            NavigationService.Navigate(new DrinkSelection(soda));
         }
         private void RootBeer_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            soda.Flavor = SodasaurusFlavor.RootBeer;
+            NavigationService.Navigate(new DrinkSelection(soda));
         }
         private void Cherry_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            soda.Flavor = SodasaurusFlavor.Cherry;
+            NavigationService.Navigate(new DrinkSelection(soda));
         }
         private void Vanilla_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            soda.Flavor = SodasaurusFlavor.Vanilla;
+            NavigationService.Navigate(new DrinkSelection(soda));
         }
         private void Chocolate_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            soda.Flavor = SodasaurusFlavor.Chocolate;
+            NavigationService.Navigate(new DrinkSelection(soda));
         }
         private void Orange_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            soda.Flavor = SodasaurusFlavor.Orange;
+            NavigationService.Navigate(new DrinkSelection(soda));
         }
         private void Lime_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            soda.Flavor = SodasaurusFlavor.Lime; 
+            NavigationService.Navigate(new DrinkSelection(soda));
         }
     }
 }

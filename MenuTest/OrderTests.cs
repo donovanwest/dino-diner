@@ -1,9 +1,10 @@
 ﻿/* OrderTests.cs
  * Author: Donovan West
- */ 
+ */
 using System.Collections.Generic;
 using Xunit;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace MenuTest.Entrees
 {
@@ -69,5 +70,7 @@ namespace MenuTest.Entrees
         public double Price { get; } = -1000;
         public string Description => throw new System.NotImplementedException();
         public string[] Special => throw new System.NotImplementedException();
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

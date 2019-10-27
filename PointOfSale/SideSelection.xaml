@@ -69,7 +69,7 @@
                 Small      
             </RadioButton>
 
-            <RadioButton Name="Medium" GroupName="Size" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton Name="Medium" Click="Medium_Click" GroupName="Size" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
@@ -78,7 +78,7 @@
                 Medium
             </RadioButton>
 
-            <RadioButton Name="Large" GroupName="Size" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton Name="Large" Click="Large_Click" GroupName="Size" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>

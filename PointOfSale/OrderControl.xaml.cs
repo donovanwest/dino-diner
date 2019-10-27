@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* OrderControl.xaml.cs
+ * Author: Donovan West
+ */ 
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DinoDiner.Menu;
 
 namespace PointOfSale
@@ -31,8 +23,14 @@ namespace PointOfSale
         {
             if (OrderItems.SelectedItem is Side side)
                 NavigationService?.Navigate(new SideSelection(side));
+            if (OrderItems.SelectedItem is Drink drink)
+                NavigationService?.Navigate(new DrinkSelection(drink));
         }
-
+        /// <summary>
+        /// removes an order item from the list when the X is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnRemoveItem(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)

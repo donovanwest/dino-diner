@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-
+using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
@@ -17,5 +17,6 @@ namespace PointOfSale
         public static Sides currentSide;
         public static Drinks currentDrink;
         public static PreviousPages PreviousPage;
+        public static SodasaurusFlavor SodaFlavor = SodasaurusFlavor.Cola;
     }
 }

@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* SideSelection.xaml.cs
+ * Author: Donovan West
+ */ 
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DinoDiner.Menu;
 namespace PointOfSale
 {
@@ -25,6 +17,10 @@ namespace PointOfSale
             InitializeComponent();
         }
         private Side Side;
+        /// <summary>
+        /// Constructor used when modifying a side.
+        /// </summary>
+        /// <param name="side">the side to be modified</param>
         public SideSelection(Side side)
         {
             InitializeComponent();
@@ -49,7 +45,7 @@ namespace PointOfSale
                 else
                     mac.Size = Size.Large;
                 
-                order.Items.Add(mac);
+                order.Add(mac);
             }
 
             App.currentSide = Sides.MeteorMacAndCheese;
@@ -70,7 +66,7 @@ namespace PointOfSale
                     fr.Size = Size.Medium;
                 else
                     fr.Size = Size.Large;
-                order.Items.Add(fr);
+                order.Add(fr);
             }
             App.currentSide = Sides.Fryceritops;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
@@ -90,7 +86,7 @@ namespace PointOfSale
                     tots.Size = Size.Medium;
                 else
                     tots.Size = Size.Large;
-                order.Items.Add(tots);
+                order.Add(tots);
             }
 
             App.currentSide = Sides.Triceritots;
@@ -102,6 +98,7 @@ namespace PointOfSale
 
         private void MezzorellaSticks_Click(object sender, RoutedEventArgs e)
         {
+            
             if (DataContext is Order order)
             {
                 MezzorellaSticks ms = new MezzorellaSticks();
@@ -111,7 +108,7 @@ namespace PointOfSale
                     ms.Size = Size.Medium;
                 else
                     ms.Size = Size.Large;
-                order.Items.Add(ms);
+                order.Add(ms);
             }
 
             App.currentSide = Sides.MezzorellaSticks;
@@ -127,6 +124,23 @@ namespace PointOfSale
             {
                 Side.Size = Size.Small;
                 
+            }
+
+        }
+
+        private void Medium_Click(object sender, RoutedEventArgs e)
+        {
+            if (Side != null)
+            {
+                Side.Size = Size.Medium;
+            }
+        }
+
+        private void Large_Click(object sender, RoutedEventArgs e)
+        {
+            if (Side != null)
+            {
+                Side.Size = Size.Large;
             }
         }
     }

@@ -49,14 +49,21 @@ namespace DinoDiner.Menu
         {
             Items.CollectionChanged += OnCollectionChanged;
         }
-
+        /// <summary>
+        /// Notifies that the sales tax, subtotal, and total properties have changed due to a change in the items
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnCollectionChanged(object sender, EventArgs args)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
         }
-
+        /// <summary>
+        /// Adds an item to the items field
+        /// </summary>
+        /// <param name="item">the item to be added</param>
         public void Add(IOrderItem item)
         {
             item.PropertyChanged += OnCollectionChanged;

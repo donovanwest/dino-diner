@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* EntreeSelection.xaml.cs
+ * Author: Donovan West
+ */ 
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DinoDiner.Menu;
 
 namespace PointOfSale
@@ -31,7 +23,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 Brontowurst br = new Brontowurst();              
-                order.Items.Add(br);
+                order.Add(br);
             }
 
             App.currentEntree = Entrees.Brontowurst;
@@ -45,7 +37,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 DinoNuggets nuggies = new DinoNuggets();
-                order.Items.Add(nuggies);
+                order.Add(nuggies);
             }
 
             App.currentEntree = Entrees.DinoNuggets;
@@ -59,7 +51,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 SteakosaurusBurger s = new SteakosaurusBurger();
-                order.Items.Add(s);
+                order.Add(s);
             }
             App.currentEntree = Entrees.Steakosaurus;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
@@ -72,7 +64,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 TRexKingBurger trex = new TRexKingBurger();
-                order.Items.Add(trex);
+                order.Add(trex);
             }
             App.currentEntree = Entrees.TRexKingBurger;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
@@ -85,7 +77,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 PterodactylWings wings = new PterodactylWings();
-                order.Items.Add(wings);
+                order.Add(wings);
             }
             App.currentEntree = Entrees.PterodactylWings;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
@@ -98,7 +90,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
-                order.Items.Add(pbj);
+                order.Add(pbj);
             }
             App.currentEntree = Entrees.PrehistoricPBJ;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
@@ -111,7 +103,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 VelociWrap wrap = new VelociWrap();
-                order.Items.Add(wrap);
+                order.Add(wrap);
             }
             App.currentEntree = Entrees.VelociWrap;
             if (App.PreviousPage == PreviousPages.ComboCustomization)

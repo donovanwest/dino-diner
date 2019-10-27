@@ -90,31 +90,31 @@
             </RadioButton>
         </Grid>
 
-        <ToggleButton Name="Lemon" Click="Lemon_Click" IsEnabled="False">
+        <ToggleButton Name="Lemon" IsEnabled="False">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Add Lemon"/></TextBlock>
             </DockPanel>
         </ToggleButton>
 
-        <ToggleButton Name="Ice" Click="Ice_Click" IsEnabled="False">
+        <ToggleButton Name="Ice" IsEnabled="False">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Add Ice"/></TextBlock>
             </DockPanel>
         </ToggleButton>
 
-        <ToggleButton Name="Decaf" Click="Decaf_Click" IsEnabled="False">
+        <ToggleButton Name="Decaf" IsEnabled="False">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Decaf"/></TextBlock>
             </DockPanel>
         </ToggleButton>
 
-        <ToggleButton Name="RoomForCream" Click="RoomForCream_Click" IsEnabled="False">
+        <ToggleButton Name="RoomForCream" IsEnabled="False">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Leave Room For Cream"/></TextBlock>
             </DockPanel>
         </ToggleButton>
 
-        <ToggleButton Name="Sweet" Click="Sweet_Click" IsEnabled="False">
+        <ToggleButton Name="Sweet" IsEnabled="False">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Add Sweetener"/></TextBlock>
             </DockPanel>

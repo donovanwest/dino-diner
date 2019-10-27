@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* DrinkSelection.xaml.cs
+ * Author: Donovan West
+ */
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DinoDiner.Menu;
 
 namespace PointOfSale
@@ -21,17 +13,118 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        /// <summary>
+        /// Default constructor for most situations
+        /// </summary>
         public DrinkSelection()
         {
             InitializeComponent();
+            
         }
-
+        private SodasaurusFlavor sodaFlavor = SodasaurusFlavor.Cola;
         private Drink drink;
+
+        public DrinkSelection(Drink d)
+        {
+            InitializeComponent();
+            drink = d;
+            if (drink.Size == Size.Small)
+                Small.IsChecked = true;
+            else if (drink.Size == Size.Medium)
+                Medium.IsChecked = true;
+            else
+                Large.IsChecked = true;
+
+            if (drink is Sodasaurus soda)
+            {
+                sodaFlavor = soda.Flavor;
+                switch (soda.Flavor)
+                {
+                    case SodasaurusFlavor.Cola:
+                        SodaFlavor.Content = "Sodasaurus \nFlavor \n(Cola)";
+                        break;
+                    case SodasaurusFlavor.RootBeer:
+                        SodaFlavor.Content = "Sodasaurus \nFlavor \n(Root Beer)";
+                        break;
+                    case SodasaurusFlavor.Cherry:
+                        SodaFlavor.Content = "Sodasaurus \nFlavor \n(Cherry)";
+                        break;
+                    case SodasaurusFlavor.Chocolate:
+                        SodaFlavor.Content = "Sodasaurus \nFlavor \n(Chocolate)";
+                        break;
+                    case SodasaurusFlavor.Orange:
+                        SodaFlavor.Content = "Sodasaurus \nFlavor \n(Orange)";
+                        break;
+                    case SodasaurusFlavor.Lime:
+                        SodaFlavor.Content = "Sodasaurus \nFlavor \n(Lime)";
+                        break;
+                    case SodasaurusFlavor.Vanilla:
+                        SodaFlavor.Content = "Sodasaurus \nFlavor \n(Vanilla)";
+                        break;                 
+                }
+                SodaFlavor.FontSize = 30;
+                Uncheck();
+                Sodasaurus.IsChecked = true;
+                JurrasicJava.IsChecked = false;
+                Tyrannotea.IsChecked = false;
+                Water.IsChecked = false;
+                Ice.IsEnabled = true;
+                Ice.IsChecked = soda.Ice;
+                SodaFlavor.IsEnabled = true;
+                Confirm.IsEnabled = true;
+            }
+
+            if(drink is JurassicJava java)
+            {
+                Uncheck();
+                Sodasaurus.IsChecked = false;
+                JurrasicJava.IsChecked = true;
+                Tyrannotea.IsChecked = false;
+                Water.IsChecked = false;
+                Ice.IsEnabled = true;
+                Ice.IsChecked = java.Ice;
+                Decaf.IsEnabled = true;
+                Decaf.IsChecked = java.Decaf;
+                RoomForCream.IsEnabled = true;
+                RoomForCream.IsChecked = java.RoomForCream;
+                Confirm.IsEnabled = true;
+            }
+
+            if(drink is Tyrannotea tea)
+            {
+                Uncheck();
+                Sodasaurus.IsChecked = false;
+                JurrasicJava.IsChecked = false;
+                Tyrannotea.IsChecked = true;
+                Water.IsChecked = false;
+                Ice.IsEnabled = true;
+                Ice.IsChecked = tea.Ice;
+                Lemon.IsEnabled = true;
+                Lemon.IsChecked = tea.Lemon;
+                Sweet.IsEnabled = true;
+                Sweet.IsChecked = tea.Sweet;
+                Confirm.IsEnabled = true;
+
+            }
+
+            if (drink is Water water)
+            {
+                Uncheck();
+                Sodasaurus.IsChecked = false;
+                JurrasicJava.IsChecked = false;
+                Tyrannotea.IsChecked = false;
+                Water.IsChecked = true;
+                Ice.IsEnabled = true;
+                Ice.IsChecked = water.Ice;
+                Lemon.IsEnabled = true;
+                Lemon.IsChecked = water.Lemon;
+                Confirm.IsEnabled = true;
+            }
+        }
 
         private void SelectWater(object sender, RoutedEventArgs e)
         {
             App.currentDrink = Drinks.Water;
-            drink = new Water();
             JurrasicJava.IsChecked = false;
             Sodasaurus.IsChecked = false;
             Tyrannotea.IsChecked = false;
@@ -51,7 +144,6 @@ namespace PointOfSale
         private void SelectJurrasicJava(object sender, RoutedEventArgs e)
         {
             App.currentDrink = Drinks.JurrasicJava;
-            drink = new JurassicJava();
             Sodasaurus.IsChecked = false;
             Tyrannotea.IsChecked = false;
             Water.IsChecked = false;
@@ -72,7 +164,6 @@ namespace PointOfSale
         private void SelectSodasaurus(object sender, RoutedEventArgs e)
         {
             App.currentDrink = Drinks.Sodasaurus;
-            drink = new Sodasaurus();
             JurrasicJava.IsChecked = false;
             Tyrannotea.IsChecked = false;
             Water.IsChecked = false;
@@ -92,7 +183,6 @@ namespace PointOfSale
         private void SelectTyrannotea(object sender, RoutedEventArgs e)
         {
             App.currentDrink = Drinks.Tyrannotea;
-            drink = new Tyrannotea();
             JurrasicJava.IsChecked = false;
             Sodasaurus.IsChecked = false;
             Water.IsChecked = false;
@@ -111,93 +201,158 @@ namespace PointOfSale
             }
         }
 
-        private void Lemon_Click(object sender, RoutedEventArgs e)
-        {
-            if (Lemon.IsChecked == false)
-            {
-                if (drink is Water water)
-                {
-                    water.AddLemon();
-                    drink = water;
-                }
-                if (drink is Tyrannotea tea)
-                {
-                    tea.AddLemon();
-                    drink = tea;
-                }
-            }
-            else
-            {
-                if (drink is Water water)
-                {
-                    water.AddLemon();
-                    drink = water;
-                }
-                if (drink is Tyrannotea tea)
-                {
-                    tea.AddLemon();
-                    drink = tea;
-                }
-            }
-        }
-
-        private void Ice_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void Decaf_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Flavor_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new SodasaurusFalavorSelection());
+            Sodasaurus soda = new Sodasaurus();
+            if (Small.IsChecked == true)
+                soda.Size = Size.Small;
+            else if (Medium.IsChecked == true)
+                soda.Size = Size.Medium;
+            else
+                soda.Size = Size.Large;
+            if (Ice.IsChecked == false)
+                soda.HoldIce();
+            NavigationService.Navigate(new SodasaurusFlavorSelection(soda));
         }
 
-        private void Sweet_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            Size size;
-            if (Small.IsChecked == true)
-                size = Size.Small;
-            else if (Medium.IsChecked == true)
-                size = Size.Medium;
+            Size size = Size.Small;
+            if (drink == null)
+            {
+                if (Small.IsChecked == true)
+                    size = Size.Small;
+                else if (Medium.IsChecked == true)
+                    size = Size.Medium;
+                else
+                    size = Size.Large;
+            }
             else
-                size = Size.Large;
+            {
+                if (Small.IsChecked == true)
+                    drink.Size = Size.Small;
+                else if (Medium.IsChecked == true)
+                    drink.Size = Size.Medium;
+                else
+                    drink.Size = Size.Large;
+            }
                   
             if (Water.IsChecked == true)
             {
-                Water water = new Water();
-                water.Size = size;
-                if (Lemon.IsChecked == true)
-                    water.AddLemon();
-                if (Ice.IsChecked == false)
-                    water.HoldIce();
-                if(DataContext is Order order)
-                    order.Items.Add(water);
+                if (drink == null)
+                {
+                    Water water = new Water();
+                    water.Size = size;
+                    if (Lemon.IsChecked == true)
+                        water.AddLemon();
+                    if (Ice.IsChecked == false)
+                        water.HoldIce();
+                    if (DataContext is Order order)
+                    {                       
+                        order.Add(water);
+                    }
+                }
+                else
+                {
+                    if (Ice.IsChecked == false)
+                        ((Water)drink).HoldIce();
+                    if (Lemon.IsChecked == true)
+                        ((Water)drink).AddLemon();
+                }
             }
             else if (Sodasaurus.IsChecked == true)
             {
-                Sodasaurus soda = new Sodasaurus();
-                soda.Size = size;
-                if (Ice.IsChecked == false)
-                    soda.HoldIce();
-                if (DataContext is Order order)
-                    order.Items.Add(soda);
+                if (drink == null)
+                {
+                    Sodasaurus soda = new Sodasaurus();
+                    soda.Size = size;
+                    soda.Flavor = sodaFlavor;
+                    if (Ice.IsChecked == false)
+                        soda.HoldIce();
+                    if (DataContext is Order order)
+                    {                     
+                        order.Add(soda);
+                    }
+                }
+                else
+                {
+                    bool needToAdd = true;
+                    if (DataContext is Order order)
+                        if (order.Items.Contains(drink))
+                            needToAdd = false;
+                    if (needToAdd == false)
+                    {
+                        ((Sodasaurus)drink).Flavor = sodaFlavor;
+                        if (Ice.IsChecked == false)
+                            ((Sodasaurus)drink).HoldIce();
+                    }
+                    else
+                    {
+                        Sodasaurus s = new Sodasaurus();
+                        s.Flavor = sodaFlavor;
+                        if (Ice.IsChecked == false)
+                            s.HoldIce();
+                        if (DataContext is Order o)
+                        {
+                            o.Add(s);
+                        }
+                    }
+                }
             }
             else if (Tyrannotea.IsChecked == true)
             {
-
+                if (drink == null)
+                {
+                    Tyrannotea tea = new Tyrannotea();
+                    tea.Size = size;
+                    if (Ice.IsChecked == false)
+                        tea.HoldIce();
+                    if (Lemon.IsChecked == true)
+                        tea.AddLemon();
+                    if (Sweet.IsChecked == true)
+                        tea.AddSweetener();
+                    if (DataContext is Order order)
+                    {
+                        order.Add(tea);
+                    }
+                }
+                else
+                {
+                    if (Ice.IsChecked == false)
+                        ((Tyrannotea)drink).HoldIce();
+                    if (Lemon.IsChecked == true)
+                        ((Tyrannotea)drink).AddLemon();
+                    if (Sweet.IsChecked == true)
+                        ((Tyrannotea)drink).AddSweetener();
+                }
             }
             else if (JurrasicJava.IsChecked == true)
             {
-
+                if (drink == null)
+                {
+                    JurassicJava java = new JurassicJava();
+                    java.Size = size;
+                    if (Ice.IsChecked == true)
+                        java.AddIce();
+                    if (RoomForCream.IsChecked == true)
+                        java.LeaveRoomForCream();
+                    if (Decaf.IsChecked == true)
+                        java.MakeDecaf();
+                    if (DataContext is Order order)
+                    {
+                        order.Add(java);
+                    }
+                }
+                else
+                {
+                    if (Ice.IsChecked == true)
+                        ((JurassicJava)drink).AddIce();
+                    if (RoomForCream.IsChecked == true)
+                        ((JurassicJava)drink).LeaveRoomForCream();
+                    if (Decaf.IsChecked == true)
+                        ((JurassicJava)drink).MakeDecaf();
+                }
             }
 
             if (App.PreviousPage == PreviousPages.ComboCustomization)
@@ -222,12 +377,8 @@ namespace PointOfSale
             SodaFlavor.IsEnabled = false;
             Sweet.IsEnabled = false;
             Confirm.IsEnabled = false;
-            RoomForCream.IsEnabled = true;
+            RoomForCream.IsEnabled = false;
         }
 
-        private void RoomForCream_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
