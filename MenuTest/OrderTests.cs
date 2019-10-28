@@ -14,20 +14,20 @@ namespace MenuTest.Entrees
         public void ShouldBeAbleToCreateAnOrder()
         {
             Order o = new Order();
-            o.Items.Add(new Brontowurst());
-            o.Items.Add(new JurassicJava());
-            o.Items.Add(new Fryceritops());
-            o.Items.Add(new CretaceousCombo(new DinoNuggets()));
+            o.Add(new Brontowurst());
+            o.Add(new JurassicJava());
+            o.Add(new Fryceritops());
+            o.Add(new CretaceousCombo(new DinoNuggets()));
         }
 
         [Fact]
         public void ShouldHaveCorrectSubtotal()
         {
             Order o = new Order();
-            o.Items.Add(new Brontowurst());
-            o.Items.Add(new JurassicJava());
-            o.Items.Add(new Fryceritops());
-            o.Items.Add(new CretaceousCombo(new DinoNuggets()));
+            o.Add(new Brontowurst());
+            o.Add(new JurassicJava());
+            o.Add(new Fryceritops());
+            o.Add(new CretaceousCombo(new DinoNuggets()));
             Assert.Equal<double>(13.43, o.SubtotalCost);
         }
 
@@ -35,10 +35,10 @@ namespace MenuTest.Entrees
         public void ShouldHaveCorrectSalesTax()
         {
             Order o = new Order();
-            o.Items.Add(new Brontowurst());
-            o.Items.Add(new JurassicJava());
-            o.Items.Add(new Fryceritops());
-            o.Items.Add(new CretaceousCombo(new DinoNuggets()));
+            o.Add(new Brontowurst());
+            o.Add(new JurassicJava());
+            o.Add(new Fryceritops());
+            o.Add(new CretaceousCombo(new DinoNuggets()));
             Assert.Equal<double>(13.43*o.SalesTaxRate, o.SalesTaxCost);
         }
 
@@ -46,10 +46,10 @@ namespace MenuTest.Entrees
         public void ShouldHaveCorrectTotal()
         {
             Order o = new Order();
-            o.Items.Add(new Brontowurst());
-            o.Items.Add(new JurassicJava());
-            o.Items.Add(new Fryceritops());
-            o.Items.Add(new CretaceousCombo(new DinoNuggets()));
+            o.Add(new Brontowurst());
+            o.Add(new JurassicJava());
+            o.Add(new Fryceritops());
+            o.Add(new CretaceousCombo(new DinoNuggets()));
             Assert.Equal<double>(13.43 + o.SalesTaxCost, o.TotalCost);
         }
 
@@ -57,8 +57,8 @@ namespace MenuTest.Entrees
         public void SubtotalCantBeNegative()
         {
             Order order = new Order();
-            order.Items.Add(new Brontowurst());
-            order.Items.Add(new TestCoupon());
+            order.Add(new Brontowurst());
+            order.Add(new TestCoupon());
             Assert.True(order.SubtotalCost >= 0);
         }
 

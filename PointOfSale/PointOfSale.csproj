@@ -54,6 +54,9 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="Entree Customization\PrehistoricPBJCustomization.xaml.cs">
+      <DependentUpon>PrehistoricPBJCustomization.xaml</DependentUpon>
+    </Compile>
     <Compile Include="enums.cs" />
     <Compile Include="ComboCustomization.xaml.cs">
       <DependentUpon>ComboCustomization.xaml</DependentUpon>
@@ -79,6 +82,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DrinkSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Entree Customization\PrehistoricPBJCustomization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -91,12 +91,13 @@ namespace PointOfSale
             {
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
                 order.Add(pbj);
+                NavigationService.Navigate(new PrehistoricPBJCustomization(pbj));
             }
-            App.currentEntree = Entrees.PrehistoricPBJ;
-            if (App.PreviousPage == PreviousPages.ComboCustomization)
-                NavigationService.Navigate(new ComboCustomization());
-            else
-                NavigationService.Navigate(new MenuCategorySelection());
+        //    App.currentEntree = Entrees.PrehistoricPBJ;
+        //    if (App.PreviousPage == PreviousPages.ComboCustomization)
+          //      NavigationService.Navigate(new ComboCustomization());
+         //   else
+        //        NavigationService.Navigate(new MenuCategorySelection());
         }
         private void Velociwrap_Click(object sender, RoutedEventArgs e)
         {

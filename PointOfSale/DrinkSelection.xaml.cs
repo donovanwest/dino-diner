@@ -279,7 +279,7 @@ namespace PointOfSale
                 {
                     bool needToAdd = true;
                     if (DataContext is Order order)
-                        if (order.Items.Contains(drink))
+                        if (order.Contains(drink))
                             needToAdd = false;
                     if (needToAdd == false)
                     {

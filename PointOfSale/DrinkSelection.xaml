@@ -122,7 +122,7 @@
 
         <Button Name="SodaFlavor" Click="Flavor_Click" IsEnabled="False" Height="180" Width="180">
             <DockPanel>
-                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Sodasaurus Flavor"/></TextBlock>
+                <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="30" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Sodasaurus Flavor (Cola)"/></TextBlock>
             </DockPanel>
         </Button>
 
