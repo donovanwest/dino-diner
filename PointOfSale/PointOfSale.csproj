@@ -54,8 +54,23 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="Entree Customization\BrontowurstCustomization.xaml.cs">
+      <DependentUpon>BrontowurstCustomization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entree Customization\DinoNuggetsCustomization.xaml.cs">
+      <DependentUpon>DinoNuggetsCustomization.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Entree Customization\PrehistoricPBJCustomization.xaml.cs">
       <DependentUpon>PrehistoricPBJCustomization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entree Customization\SteakosaurusBurgerCustomization.xaml.cs">
+      <DependentUpon>SteakosaurusBurgerCustomization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entree Customization\TRexKingBurgerCustomization.xaml.cs">
+      <DependentUpon>TRexKingBurgerCustomization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entree Customization\VelociwrapCustomization.xaml.cs">
+      <DependentUpon>VelociwrapCustomization.xaml</DependentUpon>
     </Compile>
     <Compile Include="enums.cs" />
     <Compile Include="ComboCustomization.xaml.cs">
@@ -85,7 +100,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Entree Customization\BrontowurstCustomization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Entree Customization\DinoNuggetsCustomization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Entree Customization\PrehistoricPBJCustomization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Entree Customization\SteakosaurusBurgerCustomization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Entree Customization\TRexKingBurgerCustomization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Entree Customization\VelociwrapCustomization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,5 +216,6 @@
       <Name>Menu</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
