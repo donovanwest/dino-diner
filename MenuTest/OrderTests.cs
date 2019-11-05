@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using Xunit;
 using DinoDiner.Menu;
 using System.ComponentModel;
+using System;
 
-namespace MenuTest.Entrees
+namespace MenuTest
 {
     public class OrderTests
     {
@@ -39,7 +40,7 @@ namespace MenuTest.Entrees
             o.Add(new JurassicJava());
             o.Add(new Fryceritops());
             o.Add(new CretaceousCombo(new DinoNuggets()));
-            Assert.Equal<double>(13.43*o.SalesTaxRate, o.SalesTaxCost);
+            Assert.Equal<double>(Math.Round(13.43*o.SalesTaxRate,2), o.SalesTaxCost);
         }
 
         [Fact]

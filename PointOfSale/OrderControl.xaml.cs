@@ -25,6 +25,23 @@ namespace PointOfSale
                 NavigationService?.Navigate(new SideSelection(side));
             if (OrderItems.SelectedItem is Drink drink)
                 NavigationService?.Navigate(new DrinkSelection(drink));
+            if(OrderItems.SelectedItem is Entree entree)
+            {
+                if (entree is Brontowurst br)
+                    NavigationService?.Navigate(new Entree_Customization.BrontowurstCustomization(br));
+                if (entree is DinoNuggets dn)
+                    NavigationService?.Navigate(new Entree_Customization.DinoNuggetsCustomization(dn));
+                if (entree is PrehistoricPBJ pbj)
+                    NavigationService?.Navigate(new Entree_Customization.PrehistoricPBJCustomization(pbj));
+                if (entree is SteakosaurusBurger sb)
+                    NavigationService?.Navigate(new Entree_Customization.SteakosaurusBurgerCustomization(sb));
+                if (entree is TRexKingBurger trex)
+                    NavigationService?.Navigate(new Entree_Customization.TRexKingBurgerCustomization(trex));
+                if (entree is VelociWrap wrap)
+                    NavigationService?.Navigate(new Entree_Customization.VelociwrapCustomization(wrap));             
+            }
+            if(OrderItems.SelectedItem is CretaceousCombo combo)
+                NavigationService?.Navigate(new ComboCustomization(combo));
         }
         /// <summary>
         /// removes an order item from the list when the X is clicked

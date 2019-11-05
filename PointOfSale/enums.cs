@@ -45,6 +45,9 @@ namespace PointOfSale
     public enum PreviousPages
     {
         MenuCategorySelection,
-        ComboCustomization,       
+        ComboCustomization,
+        EntreeSelection,
+        DrinkSelection,
+        SideSelection
     }
 }

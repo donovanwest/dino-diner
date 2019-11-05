@@ -20,14 +20,14 @@
         </Grid.RowDefinitions>
         <Button Name="Entree" Click="ChangeEntree" Grid.Row="0" Grid.Column="0" FontSize="50">Entree</Button>
         <Button Name="Side" Click="ChangeSide" Grid.Row="0" Grid.Column="1" FontSize="50">Side</Button>
-        <Button Name="Drink" Click="ChangeDrink" Grid.Row="1" Grid.Column="0" FontSize="50">Drink</Button>
-        <Grid Grid.Row="1" Grid.Column="1" Background="LightGray">
+        <Button Name="Drink" Click="ChangeDrink" Grid.Row="1" Grid.Column="1" FontSize="50">Drink</Button>
+        <Grid Grid.Row="1" Grid.Column="0" Background="LightGray">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <RadioButton GroupName="Size"  IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton GroupName="Size" Click="Small_Click" IsChecked="True" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
@@ -36,7 +36,7 @@
                 Small
             </RadioButton>
 
-            <RadioButton GroupName="Size" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton GroupName="Size" Click="Medium_Click" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
@@ -45,7 +45,7 @@
                 Medium
             </RadioButton>
 
-            <RadioButton GroupName="Size" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
+            <RadioButton GroupName="Size" Click="Large_Click" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Center"  RenderTransformOrigin="0,0.5">
                 <RadioButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="4" ScaleY="4"/>
@@ -55,7 +55,7 @@
             </RadioButton>
         </Grid>
 
-        <Button Click="Confirm_Click" Grid.Row="0" Grid.Column="2">
+        <Button Click="Confirm_Click" Grid.Row="1" Grid.Column="2">
             <DockPanel>
                 <TextBlock DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Center" FontSize="50" FontFamily="Ravie"   HorizontalAlignment="Center"><Run FontFamily="Segoe UI" Text="Confirm"/></TextBlock>
             </DockPanel>

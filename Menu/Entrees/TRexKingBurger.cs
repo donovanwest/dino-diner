@@ -17,7 +17,7 @@ namespace DinoDiner.Menu
         private bool onion = true;
         private bool mayo = true;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         // Helper funciton for notifiying of property changes
         private void NotifyOfPropertyChange(string propertyName)

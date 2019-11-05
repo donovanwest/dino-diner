@@ -9,9 +9,28 @@ namespace DinoDiner.Menu
 {
     public class CretaceousCombo : IMenuItem, IOrderItem
     {
-        public Entree Entree;
-        public Drink Drink;
-        public Side Side;
+        private Entree entree;
+        private Drink drink;
+        private Side side;
+        public Entree Entree { get { return entree; } set
+            {
+                entree = value;
+                PropsChanged();
+            } }
+        public Drink Drink
+        {
+            get { return drink; }
+            set
+            {
+                drink = value;
+                PropsChanged();
+            }
+        }
+        public Side Side { get { return side; } set
+            {
+                side = value;
+                PropsChanged();
+            } }
         private Size size = Size.Small;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -20,9 +39,9 @@ namespace DinoDiner.Menu
 
         public CretaceousCombo(Entree e)
         {
-            Entree = e;
-            Side = new Fryceritops();
-            Drink = new Sodasaurus();
+            entree = e;
+            side = new Fryceritops();
+            drink = new Sodasaurus();
         }
 
         public Size Size
@@ -36,6 +55,7 @@ namespace DinoDiner.Menu
                 this.size = value;
                 this.Drink.Size = value;
                 this.Side.Size = value;
+                PropsChanged();
             }
         }
 
@@ -101,13 +121,26 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> specials = new List<string>();
-                specials.AddRange(Entree.Special);
+                foreach (string special in Entree.Special)
+                    specials.Add("---" + special);
+               // specials.AddRange(Entree.Special);
                 specials.Add(Side.ToString());
-                specials.AddRange(Side.Special);
+                foreach (string special in Side.Special)
+                    specials.Add("---" + special);
+                //specials.AddRange(Side.Special);
                 specials.Add(Drink.ToString());
-                specials.AddRange(Drink.Special);
+                foreach (string special in Side.Special)
+                    specials.Add("---" + special);
+                //specials.AddRange(Drink.Special);
                 return specials.ToArray();
             }
+        }
+
+        private void PropsChanged()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Description"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Special"));
         }
     }
 }

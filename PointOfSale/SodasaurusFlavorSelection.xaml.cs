@@ -23,37 +23,37 @@ namespace PointOfSale
         private void Cola_Click(object sender, RoutedEventArgs e)
         {
             soda.Flavor = SodasaurusFlavor.Cola;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            NavigationService.Navigate(new DrinkSelection(SodasaurusFlavor.Cola));
         }
         private void RootBeer_Click(object sender, RoutedEventArgs e)
         {
             soda.Flavor = SodasaurusFlavor.RootBeer;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            NavigationService.Navigate(new DrinkSelection(SodasaurusFlavor.RootBeer));
         }
         private void Cherry_Click(object sender, RoutedEventArgs e)
         {
             soda.Flavor = SodasaurusFlavor.Cherry;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            NavigationService.Navigate(new DrinkSelection(SodasaurusFlavor.Cherry));
         }
         private void Vanilla_Click(object sender, RoutedEventArgs e)
         {
             soda.Flavor = SodasaurusFlavor.Vanilla;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            NavigationService.Navigate(new DrinkSelection(SodasaurusFlavor.Vanilla));
         }
         private void Chocolate_Click(object sender, RoutedEventArgs e)
         {
             soda.Flavor = SodasaurusFlavor.Chocolate;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            NavigationService.Navigate(new DrinkSelection(SodasaurusFlavor.Chocolate));
         }
         private void Orange_Click(object sender, RoutedEventArgs e)
         {
             soda.Flavor = SodasaurusFlavor.Orange;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            NavigationService.Navigate(new DrinkSelection(SodasaurusFlavor.Orange));
         }
         private void Lime_Click(object sender, RoutedEventArgs e)
         {
             soda.Flavor = SodasaurusFlavor.Lime; 
-            NavigationService.Navigate(new DrinkSelection(soda));
+            NavigationService.Navigate(new DrinkSelection(SodasaurusFlavor.Lime));
         }
     }
 }

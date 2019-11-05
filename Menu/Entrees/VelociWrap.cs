@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
         private bool CeasarDressing = true;
         private bool ParmesanCheese = true;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         // Helper funciton for notifiying of property changes
         private void NotifyOfPropertyChange(string propertyName)
@@ -73,6 +73,7 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.RomaineLettuce = false;
+
             NotifyOfPropertyChange("Special");
 
         }

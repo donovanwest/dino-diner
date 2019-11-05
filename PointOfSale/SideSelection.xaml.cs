@@ -16,7 +16,8 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-        private Side Side;
+        private Side side;
+        private CretaceousCombo combo;
         /// <summary>
         /// Constructor used when modifying a side.
         /// </summary>
@@ -24,7 +25,7 @@ namespace PointOfSale
         public SideSelection(Side side)
         {
             InitializeComponent();
-            Side = side;
+            this.side = side;
             if (side.Size == Size.Small)
                 Small.IsChecked = true;
             else if (side.Size == Size.Medium)
@@ -33,114 +34,177 @@ namespace PointOfSale
                 Large.IsChecked = true;
         }
 
+        public SideSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            if (combo.Side.Size == Size.Small)
+                Small.IsChecked = true;
+            else if (combo.Side.Size == Size.Medium)
+                Medium.IsChecked = true;
+            else
+                Large.IsChecked = true;
+        }
+
         private void MeteorMacAndCheese_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order order)
+            if (side == null && combo == null)
             {
-                MeteorMacAndCheese mac = new MeteorMacAndCheese();             
-                if (Small.IsChecked == true)
-                    mac.Size = Size.Small;
-                else if (Medium.IsChecked == true)
-                    mac.Size = Size.Medium;
-                else
-                    mac.Size = Size.Large;
-                
-                order.Add(mac);
+                if (DataContext is Order order)
+                {
+                    MeteorMacAndCheese mac = new MeteorMacAndCheese();
+                    mac.Size = CheckSize();
+                    order.Add(mac);
+                }
+            }
+            else if(side != null && combo== null)
+            {
+                side = new MeteorMacAndCheese();
+                side.Size = CheckSize();
+            }
+            else
+            {           
+                combo.Side = new MeteorMacAndCheese();
+                combo.Side.Size = CheckSize();
             }
 
             App.currentSide = Sides.MeteorMacAndCheese;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
-                NavigationService.Navigate(new ComboCustomization());
+                NavigationService.Navigate(new ComboCustomization(combo));
             else
                 NavigationService.Navigate(new MenuCategorySelection());
         }
 
         private void Fryceritops_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order order)
+            if (side == null && combo == null)
             {
-                Fryceritops fr = new Fryceritops();
-                if (Small.IsChecked == true)
-                    fr.Size = Size.Small;
-                else if (Medium.IsChecked == true)
-                    fr.Size = Size.Medium;
-                else
-                    fr.Size = Size.Large;
-                order.Add(fr);
+                if (DataContext is Order order)
+                {
+                    Fryceritops fr = new Fryceritops();
+                    fr.Size = CheckSize();
+                    order.Add(fr);
+                }
+            }
+            else if(side != null && combo == null)
+            {
+                side = new Fryceritops();
+                side.Size = CheckSize();
+            }
+            else
+            {
+                combo.Side = new Fryceritops();
+                combo.Side.Size = CheckSize();
             }
             App.currentSide = Sides.Fryceritops;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
-                NavigationService.Navigate(new ComboCustomization());
+                NavigationService.Navigate(new ComboCustomization(combo));
             else
                 NavigationService.Navigate(new MenuCategorySelection());
         }
 
         private void Triceritots_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order order)
+            if (side == null && combo == null)
             {
-                Triceritots tots = new Triceritots();
-                if (Small.IsChecked == true)
-                    tots.Size = Size.Small;
-                else if (Medium.IsChecked == true)
-                    tots.Size = Size.Medium;
-                else
-                    tots.Size = Size.Large;
-                order.Add(tots);
+                if (DataContext is Order order)
+                {
+                    Triceritots tots = new Triceritots();
+                    tots.Size = CheckSize();
+                    order.Add(tots);
+                }
+            }
+            else if(side != null && combo == null)
+            {
+                side = new Triceritots();
+                side.Size = CheckSize();
+            }
+            else
+            {
+                combo.Side = new Triceritots();
+                combo.Side.Size = CheckSize();
             }
 
             App.currentSide = Sides.Triceritots;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
-                NavigationService.Navigate(new ComboCustomization());
+                NavigationService.Navigate(new ComboCustomization(combo));
             else
                 NavigationService.Navigate(new MenuCategorySelection());
         }
 
         private void MezzorellaSticks_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (DataContext is Order order)
+            if (side == null && combo == null)
             {
-                MezzorellaSticks ms = new MezzorellaSticks();
-                if (Small.IsChecked == true)
-                    ms.Size = Size.Small;
-                else if (Medium.IsChecked == true)
-                    ms.Size = Size.Medium;
-                else
-                    ms.Size = Size.Large;
-                order.Add(ms);
+                if (DataContext is Order order)
+                {
+                    MezzorellaSticks ms = new MezzorellaSticks();
+                    ms.Size = CheckSize();
+                    order.Add(ms);
+                }
+            }
+            else if(side != null && combo == null)
+            {
+                side = new MezzorellaSticks();
+                side.Size = CheckSize();
+            }
+            else
+            {
+                combo.Side = new MezzorellaSticks();
+                combo.Side.Size = CheckSize();
             }
 
             App.currentSide = Sides.MezzorellaSticks;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
-                NavigationService.Navigate(new ComboCustomization());
+                NavigationService.Navigate(new ComboCustomization(combo));
             else
                 NavigationService.Navigate(new MenuCategorySelection());
         }
 
+        private Size CheckSize()
+        {
+            if (Small.IsChecked == true)
+                return Size.Small;
+            if (Medium.IsChecked == true)
+                return Size.Medium;
+            return Size.Large;
+        }
+
         private void Small_Click(object sender, RoutedEventArgs e)
         {
-            if(Side != null)
+            if(side != null)
             {
-                Side.Size = Size.Small;
+                side.Size = Size.Small;
                 
+            }
+            if(combo != null)
+            {
+                combo.Side.Size = Size.Small;
             }
 
         }
 
         private void Medium_Click(object sender, RoutedEventArgs e)
         {
-            if (Side != null)
+            if (side != null)
             {
-                Side.Size = Size.Medium;
+                side.Size = Size.Medium;
+            }
+            if (combo != null)
+            {
+                combo.Side.Size = Size.Medium;
             }
         }
 
         private void Large_Click(object sender, RoutedEventArgs e)
         {
-            if (Side != null)
+            if (side != null)
             {
-                Side.Size = Size.Large;
+                side.Size = Size.Large;
+            }
+            if (combo != null)
+            {
+                combo.Side.Size = Size.Large;
             }
         }
     }

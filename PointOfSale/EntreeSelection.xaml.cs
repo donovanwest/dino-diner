@@ -15,6 +15,7 @@ namespace PointOfSale
     {
         public EntreeSelection()
         {
+            App.PreviousPage = PreviousPages.EntreeSelection;
             InitializeComponent();
         }
 
@@ -24,13 +25,9 @@ namespace PointOfSale
             {
                 Brontowurst br = new Brontowurst();              
                 order.Add(br);
+                NavigationService.Navigate(new Entree_Customization.BrontowurstCustomization(br));
             }
 
-            App.currentEntree = Entrees.Brontowurst;
-            if(App.PreviousPage == PreviousPages.ComboCustomization)          
-                NavigationService.Navigate(new ComboCustomization());          
-            else           
-                NavigationService.Navigate(new MenuCategorySelection());
         }
         private void DinoNuggets_Click(object sender, RoutedEventArgs e)
         {
@@ -38,13 +35,9 @@ namespace PointOfSale
             {
                 DinoNuggets nuggies = new DinoNuggets();
                 order.Add(nuggies);
+                NavigationService.Navigate(new Entree_Customization.DinoNuggetsCustomization(nuggies));
             }
-
-            App.currentEntree = Entrees.DinoNuggets;
-            if (App.PreviousPage == PreviousPages.ComboCustomization)
-                NavigationService.Navigate(new ComboCustomization());
-            else
-                NavigationService.Navigate(new MenuCategorySelection());
+            
         }
         private void Steakosaurus_Click(object sender, RoutedEventArgs e)
         {
@@ -52,12 +45,9 @@ namespace PointOfSale
             {
                 SteakosaurusBurger s = new SteakosaurusBurger();
                 order.Add(s);
+                NavigationService.Navigate(new Entree_Customization.SteakosaurusBurgerCustomization(s));
             }
-            App.currentEntree = Entrees.Steakosaurus;
-            if (App.PreviousPage == PreviousPages.ComboCustomization)
-                NavigationService.Navigate(new ComboCustomization());
-            else
-                NavigationService.Navigate(new MenuCategorySelection());
+            
         }
         private void TRexKingBurger_Click(object sender, RoutedEventArgs e)
         {
@@ -65,12 +55,9 @@ namespace PointOfSale
             {
                 TRexKingBurger trex = new TRexKingBurger();
                 order.Add(trex);
+                NavigationService.Navigate(new Entree_Customization.TRexKingBurgerCustomization(trex));
             }
-            App.currentEntree = Entrees.TRexKingBurger;
-            if (App.PreviousPage == PreviousPages.ComboCustomization)
-                NavigationService.Navigate(new ComboCustomization());
-            else
-                NavigationService.Navigate(new MenuCategorySelection());
+            
         }
         private void PterodactylWings_Click(object sender, RoutedEventArgs e)
         {
@@ -79,11 +66,8 @@ namespace PointOfSale
                 PterodactylWings wings = new PterodactylWings();
                 order.Add(wings);
             }
-            App.currentEntree = Entrees.PterodactylWings;
-            if (App.PreviousPage == PreviousPages.ComboCustomization)
-                NavigationService.Navigate(new ComboCustomization());
-            else
-                NavigationService.Navigate(new MenuCategorySelection());
+            App.currentEntree = Entrees.PterodactylWings;        
+            NavigationService.Navigate(new MenuCategorySelection());
         }
         private void PBJ_Click(object sender, RoutedEventArgs e)
         {
@@ -91,13 +75,8 @@ namespace PointOfSale
             {
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
                 order.Add(pbj);
-                NavigationService.Navigate(new PrehistoricPBJCustomization(pbj));
+                NavigationService.Navigate(new Entree_Customization.PrehistoricPBJCustomization(pbj));
             }
-        //    App.currentEntree = Entrees.PrehistoricPBJ;
-        //    if (App.PreviousPage == PreviousPages.ComboCustomization)
-          //      NavigationService.Navigate(new ComboCustomization());
-         //   else
-        //        NavigationService.Navigate(new MenuCategorySelection());
         }
         private void Velociwrap_Click(object sender, RoutedEventArgs e)
         {
@@ -105,12 +84,9 @@ namespace PointOfSale
             {
                 VelociWrap wrap = new VelociWrap();
                 order.Add(wrap);
+                NavigationService.Navigate(new Entree_Customization.VelociwrapCustomization(wrap));
             }
-            App.currentEntree = Entrees.VelociWrap;
-            if (App.PreviousPage == PreviousPages.ComboCustomization)
-                NavigationService.Navigate(new ComboCustomization());
-            else
-                NavigationService.Navigate(new MenuCategorySelection());
+
         }
     }
 }

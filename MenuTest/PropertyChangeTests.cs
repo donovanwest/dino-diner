@@ -469,7 +469,7 @@ namespace MenuTest
             Tyrannotea tea = new Tyrannotea();
             Assert.PropertyChanged(tea, "Description", () =>
             {
-                tea.Sweet = true;
+                tea.AddSweetener();
             });
         }
 
@@ -613,6 +613,23 @@ namespace MenuTest
             });
         }
 
+        //[Fact]
+        //public void ComboPropertyChange()
+        //{
+        //    CretaceousCombo combo = new CretaceousCombo(new VelociWrap());
+        //    Assert.PropertyChanged(combo, "Special", () =>
+        //    {
+        //        ((VelociWrap)combo.Entree).HoldLettuce();
+        //    });
+        //    Assert.PropertyChanged(combo, "Special", () =>
+        //    {
+        //        ((VelociWrap)combo.Entree).HoldCheese();
+        //    });
+        //    Assert.PropertyChanged(combo, "Special", () =>
+        //    {
+        //        ((VelociWrap)combo.Entree).HoldDressing();
+        //    });
+        //}
         #endregion
 
         // Order 

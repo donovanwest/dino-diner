@@ -9,7 +9,7 @@ namespace DinoDiner.Menu
     public class DinoNuggets : Entree, INotifyPropertyChanged
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         // Helper funciton for notifiying of property changes
         private void NotifyOfPropertyChange(string propertyName)

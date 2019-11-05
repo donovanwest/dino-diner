@@ -97,6 +97,7 @@ namespace DinoDiner.Menu
         {
             Sweet = true;
             NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Description");
         }
 
         /// <summary>
