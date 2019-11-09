@@ -7,16 +7,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using DinoDiner.Menu;
 namespace PointOfSale
-{
+{  
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
-        public static Entrees currentEntree;
-        public static Sides currentSide;
-        public static Drinks currentDrink;
         public static PreviousPages PreviousPage;
-        public static SodasaurusFlavor SodaFlavor = SodasaurusFlavor.Cola;
+       // public static SodasaurusFlavor SodaFlavor = SodasaurusFlavor.Cola;
     }
 }

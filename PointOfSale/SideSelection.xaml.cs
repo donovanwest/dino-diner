@@ -67,8 +67,6 @@ namespace PointOfSale
                 combo.Side = new MeteorMacAndCheese();
                 combo.Side.Size = CheckSize();
             }
-
-            App.currentSide = Sides.MeteorMacAndCheese;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization(combo));
             else
@@ -96,7 +94,6 @@ namespace PointOfSale
                 combo.Side = new Fryceritops();
                 combo.Side.Size = CheckSize();
             }
-            App.currentSide = Sides.Fryceritops;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization(combo));
             else
@@ -124,8 +121,6 @@ namespace PointOfSale
                 combo.Side = new Triceritots();
                 combo.Side.Size = CheckSize();
             }
-
-            App.currentSide = Sides.Triceritots;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization(combo));
             else
@@ -153,8 +148,6 @@ namespace PointOfSale
                 combo.Side = new MezzorellaSticks();
                 combo.Side.Size = CheckSize();
             }
-
-            App.currentSide = Sides.MezzorellaSticks;
             if (App.PreviousPage == PreviousPages.ComboCustomization)
                 NavigationService.Navigate(new ComboCustomization(combo));
             else

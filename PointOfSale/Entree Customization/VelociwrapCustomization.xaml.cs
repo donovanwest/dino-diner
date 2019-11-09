@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
-using System.ComponentModel;
 namespace PointOfSale.Entree_Customization
 {
     /// <summary>
     /// Interaction logic for VelociwrapCustomization.xaml
     /// </summary>
-    public partial class VelociwrapCustomization : Page, INotifyPropertyChanged
+    public partial class VelociwrapCustomization : Page
     {
         private VelociWrap wrap;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+
 
         public VelociwrapCustomization(VelociWrap wrap)
         {
@@ -33,7 +32,6 @@ namespace PointOfSale.Entree_Customization
         private void OnHoldLettuce(object sender, RoutedEventArgs e)
         {
             wrap.HoldLettuce();
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Special"));
         }
 
         private void OnHoldDressing(object sender, RoutedEventArgs e)
@@ -48,7 +46,6 @@ namespace PointOfSale.Entree_Customization
 
         private void OnConfirm(object sender, RoutedEventArgs e)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Special"));
             if (App.PreviousPage == PreviousPages.EntreeSelection)
                 NavigationService.Navigate(new MenuCategorySelection());
             else if (App.PreviousPage == PreviousPages.ComboCustomization)

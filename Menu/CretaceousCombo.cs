@@ -123,15 +123,12 @@ namespace DinoDiner.Menu
                 List<string> specials = new List<string>();
                 foreach (string special in Entree.Special)
                     specials.Add("---" + special);
-               // specials.AddRange(Entree.Special);
                 specials.Add(Side.ToString());
                 foreach (string special in Side.Special)
                     specials.Add("---" + special);
-                //specials.AddRange(Side.Special);
                 specials.Add(Drink.ToString());
                 foreach (string special in Side.Special)
                     specials.Add("---" + special);
-                //specials.AddRange(Drink.Special);
                 return specials.ToArray();
             }
         }

@@ -17,9 +17,7 @@ namespace PointOfSale
     /// </summary>
     public partial class ComboCustomization : Page, INotifyPropertyChanged
     {
-       // private Entree entree;
-        //private Drink drink;
-        //private Side side;
+       
         private CretaceousCombo combo;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -29,8 +27,6 @@ namespace PointOfSale
             InitializeComponent();
             App.PreviousPage = PreviousPages.ComboCustomization;
             combo = c;
-            //combo.Side = side;
-            //combo.Drink = drink;
            
     
             if(combo.Entree is Brontowurst)
@@ -96,11 +92,6 @@ namespace PointOfSale
         }
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            //if (DataContext is Order order)
-            //{
-
-            //    order.Add(combo);
-            //}
             NavigationService.Navigate(new MenuCategorySelection());
         }
 

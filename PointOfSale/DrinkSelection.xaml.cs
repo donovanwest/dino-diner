@@ -78,7 +78,6 @@ namespace PointOfSale
 
         private void SelectWater(object sender, RoutedEventArgs e)
         {
-            App.currentDrink = Drinks.Water;
             JurrasicJava.IsChecked = false;
             Sodasaurus.IsChecked = false;
             Tyrannotea.IsChecked = false;
@@ -97,7 +96,6 @@ namespace PointOfSale
         }
         private void SelectJurrasicJava(object sender, RoutedEventArgs e)
         {
-            App.currentDrink = Drinks.JurrasicJava;
             Sodasaurus.IsChecked = false;
             Tyrannotea.IsChecked = false;
             Water.IsChecked = false;
@@ -117,7 +115,6 @@ namespace PointOfSale
         }
         private void SelectSodasaurus(object sender, RoutedEventArgs e)
         {
-            App.currentDrink = Drinks.Sodasaurus;
             JurrasicJava.IsChecked = false;
             Tyrannotea.IsChecked = false;
             Water.IsChecked = false;
@@ -136,7 +133,6 @@ namespace PointOfSale
         }
         private void SelectTyrannotea(object sender, RoutedEventArgs e)
         {
-            App.currentDrink = Drinks.Tyrannotea;
             JurrasicJava.IsChecked = false;
             Sodasaurus.IsChecked = false;
             Water.IsChecked = false;

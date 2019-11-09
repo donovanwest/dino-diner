@@ -66,7 +66,6 @@ namespace PointOfSale
                 PterodactylWings wings = new PterodactylWings();
                 order.Add(wings);
             }
-            App.currentEntree = Entrees.PterodactylWings;        
             NavigationService.Navigate(new MenuCategorySelection());
         }
         private void PBJ_Click(object sender, RoutedEventArgs e)

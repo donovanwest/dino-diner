@@ -20,9 +20,6 @@ namespace PointOfSale
 
         private void BrontosaurusCombo(object sender, RoutedEventArgs e)
         {
-            App.currentEntree = Entrees.Brontowurst;
-            App.currentSide = Sides.Fryceritops;
-            App.currentDrink = Drinks.Sodasaurus;
             CretaceousCombo combo = new CretaceousCombo(new Brontowurst());
             if (DataContext is Order order)
             {
@@ -31,10 +28,7 @@ namespace PointOfSale
             NavigationService.Navigate(new ComboCustomization(combo));
         }
         private void DinoNuggetsCombo(object sender, RoutedEventArgs e)
-        {
-            App.currentEntree = Entrees.DinoNuggets;
-            App.currentSide = Sides.Fryceritops;
-            App.currentDrink = Drinks.Sodasaurus;
+        {            
             CretaceousCombo combo = new CretaceousCombo(new DinoNuggets());
             if (DataContext is Order order)
             {
@@ -44,9 +38,6 @@ namespace PointOfSale
         }
         private void SteakosaurusCombo(object sender, RoutedEventArgs e)
         {
-            App.currentEntree = Entrees.Steakosaurus;
-            App.currentSide = Sides.Fryceritops;
-            App.currentDrink = Drinks.Sodasaurus;
             CretaceousCombo combo = new CretaceousCombo(new SteakosaurusBurger());
             if (DataContext is Order order)
             {
@@ -56,9 +47,6 @@ namespace PointOfSale
         }
         private void TRexKingBurgerCombo(object sender, RoutedEventArgs e)
         {
-            App.currentEntree = Entrees.TRexKingBurger;
-            App.currentSide = Sides.Fryceritops;
-            App.currentDrink = Drinks.Sodasaurus;
             CretaceousCombo combo = new CretaceousCombo(new TRexKingBurger());
             if(DataContext is Order order)
             {
@@ -68,9 +56,6 @@ namespace PointOfSale
         }
         private void PterodactylWingsCombo(object sender, RoutedEventArgs e)
         {
-            App.currentEntree = Entrees.PterodactylWings;
-            App.currentSide = Sides.Fryceritops;
-            App.currentDrink = Drinks.Sodasaurus;
             CretaceousCombo combo = new CretaceousCombo(new PterodactylWings());
             if (DataContext is Order order)
             {
@@ -80,9 +65,6 @@ namespace PointOfSale
         }
         private void PBJCombo(object sender, RoutedEventArgs e)
         {
-            App.currentEntree = Entrees.PrehistoricPBJ;
-            App.currentSide = Sides.Fryceritops;
-            App.currentDrink = Drinks.Sodasaurus;
             CretaceousCombo combo = new CretaceousCombo(new PrehistoricPBJ());
             if (DataContext is Order order)
             {                
@@ -92,9 +74,6 @@ namespace PointOfSale
         }
         private void VelociwrapCombo(object sender, RoutedEventArgs e)
         {
-            App.currentEntree = Entrees.VelociWrap;
-            App.currentSide = Sides.Fryceritops;
-            App.currentDrink = Drinks.Sodasaurus;
             CretaceousCombo combo = new CretaceousCombo(new VelociWrap());
             if (DataContext is Order order)
             {            
