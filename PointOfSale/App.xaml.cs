@@ -14,6 +14,5 @@ namespace PointOfSale
     public partial class App : Application
     {
         public static PreviousPages PreviousPage;
-       // public static SodasaurusFlavor SodaFlavor = SodasaurusFlavor.Cola;
     }
 }
