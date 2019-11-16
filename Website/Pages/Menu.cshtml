@@ -1,0 +1,88 @@
+﻿@page
+@model Website.Pages.MenuModel
+@{
+    ViewData["Title"] = "Menu";
+}
+@using DinoDiner.Menu;
+
+<head>
+	<title>Menu</title>
+</head>
+
+<h1>Menu</h1>
+
+
+<h2>Entrees</h2>
+<div>
+	@foreach (Entree e in Model.Menu.AvailiableEntrees)
+	{
+		<div class="menu-item">
+			<div class="item-name">@e.ToString()</div>
+			<div class="subItem">@(e.Price.ToString("C2"))</div>
+			<div class="subItem">@(e.Calories + " Calories")</div>
+			<div class="subItem">
+				Ingredients:
+				@foreach (string i in e.Ingredients)
+				{
+					<div>@("---" + i)</div>
+				}
+			</div>
+		</div>
+	}
+</div>
+
+<h2>Combos</h2>
+<div>
+	@foreach (CretaceousCombo c in Model.Menu.AvailiableCombos)
+	{
+		<div class="menu-item">
+			<div class="item-name">@c.ToString()</div>
+			<div class="subItem">@(c.Price.ToString("C2"))</div>
+			<div class="subItem">@(c.Calories + " Calories")</div>
+			<div class="subItem">
+				Ingredients:
+				@foreach (string i in c.Ingredients)
+				{
+					<div>@("---" + i)</div>
+				}
+			</div>
+		</div>
+	}
+</div>
+<h2>Drinks</h2>
+<div>
+	@foreach (Drink d in Model.Menu.AvailiableDrinks)
+	{
+		<div class="menu-item">
+			<div class="item-name">@d.ToString()</div>
+			<div class="subItem">@(d.Price.ToString("C2"))</div>
+			<div class="subItem">@(d.Calories + " Calories")</div>
+			<div class="subItem">
+				Ingredients:
+				@foreach (string i in d.Ingredients)
+				{
+					<div>@("---" + i)</div>
+				}
+			</div>
+		</div>
+	}
+</div>
+
+<h2>Sides</h2>
+<div>
+	@foreach (Side s in Model.Menu.AvailiableSides)
+	{
+		<div class="menu-item">
+			<div class="item-name">@s.ToString()</div>
+			<div class="subItem">@(s.Price.ToString("C2"))</div>
+			<div class="subItem">@(s.Calories + " Calories")</div>
+			<div class="subItem">
+				Ingredients:
+				@foreach (string i in s.Ingredients)
+				{
+					<div>@("---" + i)</div>
+				}
+			</div>
+		</div>
+	}
+</div>

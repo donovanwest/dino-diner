@@ -12,3 +12,16 @@ body {
     padding-right: 15px;
 }
 
+
+.link {
+	font-size: 40pt;
+}
+
+.subItem {
+	padding-left: 20px;
+	font-size: 16pt;
+}
+
+.item-name {
+	font-size: 20pt;
+}
