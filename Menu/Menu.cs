@@ -9,10 +9,47 @@ namespace DinoDiner.Menu
 {
     public class Menu
     {
+        //private List<IMenuItem> availableMenuItems = new List<IMenuItem>();
+
+        //private List<IMenuItem> availabledrinks;
+
+        //private List<IMenuItem> availableSides;
+
+        //private List<IMenuItem> availableDrinks;
+
+        //private List<IMenuItem> availableCombos;
+
+        public Menu()
+        {
+            
+/*
+            availabledrinks.Add(new Brontowurst());
+            availabledrinks.Add(new DinoNuggets());
+            availabledrinks.Add(new PrehistoricPBJ());
+            availabledrinks.Add(new PterodactylWings());
+            availabledrinks.Add(new SteakosaurusBurger());
+            availabledrinks.Add(new TRexKingBurger());
+            availabledrinks.Add(new VelociWrap());
+
+            availableSides.Add(new Fryceritops());
+            availableSides.Add(new MeteorMacAndCheese());
+            availableSides.Add(new MezzorellaSticks());
+            availableSides.Add(new Triceritots());
+
+            availableCombos.Add(new CretaceousCombo(new Brontowurst()));
+            availableCombos.Add(new CretaceousCombo(new DinoNuggets()));
+            availableCombos.Add(new CretaceousCombo(new PrehistoricPBJ()));
+            availableCombos.Add(new CretaceousCombo(new PterodactylWings()));
+            availableCombos.Add(new CretaceousCombo(new SteakosaurusBurger()));
+            availableCombos.Add(new CretaceousCombo(new TRexKingBurger()));
+            availableCombos.Add(new CretaceousCombo(new VelociWrap()));
+            */
+        }
+
         /// <summary>
         /// returns a list of all availiable menu items
         /// </summary>
-        public List<IMenuItem> AvailiableMenuItems
+        public List<IMenuItem> AvailableMenuItems
         {
             get
             {
@@ -48,66 +85,64 @@ namespace DinoDiner.Menu
         /// <summary>
         /// returns a list of all availiable entrees
         /// </summary>
-        public List<IMenuItem> AvailiableEntrees
+        public List<IMenuItem> AvailableEntrees
         {
             get
             {
                 List<IMenuItem> entrees = new List<IMenuItem>();
-                entrees.Add(new Brontowurst());
-                entrees.Add(new DinoNuggets());
-                entrees.Add(new PrehistoricPBJ());
-                entrees.Add(new PterodactylWings());
-                entrees.Add(new SteakosaurusBurger());
-                entrees.Add(new TRexKingBurger());
-                entrees.Add(new VelociWrap());
+                foreach(IMenuItem item in AvailableMenuItems)
+                {
+                    if (item is Entree entree)
+                        entrees.Add(entree);
+                }
                 return entrees;
             }
         }
         /// <summary>
         /// returns a list of all availiable sides
         /// </summary>
-        public List<IMenuItem> AvailiableSides
+        public List<IMenuItem> AvailableSides
         {
             get
             {
                 List<IMenuItem> sides = new List<IMenuItem>();
-                sides.Add(new Fryceritops());
-                sides.Add(new MeteorMacAndCheese());
-                sides.Add(new MezzorellaSticks());
-                sides.Add(new Triceritots());
+                foreach (IMenuItem item in AvailableMenuItems)
+                {
+                    if (item is Side side)
+                        sides.Add(side);
+                }
                 return sides;
             }
         }
         /// <summary>
         /// returns a list of all availiable drinks
         /// </summary>
-        public List<IMenuItem> AvailiableDrinks
+        public List<IMenuItem> AvailableDrinks
         {
             get
             {
                 List<IMenuItem> drinks = new List<IMenuItem>();
-                drinks.Add(new JurassicJava());
-                drinks.Add(new Sodasaurus());
-                drinks.Add(new Tyrannotea());
-                drinks.Add(new Water());
+                foreach (IMenuItem item in AvailableMenuItems)
+                {
+                    if (item is Drink drink)
+                        drinks.Add(drink);
+                }
                 return drinks;
             }
         }
         /// <summary>
         /// returns a list of all availiable combos
         /// </summary>
-        public List<IMenuItem> AvailiableCombos
+        public List<IMenuItem> AvailableCombos
         {
             get
             {
                 List<IMenuItem> combos = new List<IMenuItem>();
-                combos.Add(new CretaceousCombo(new Brontowurst()));
-                combos.Add(new CretaceousCombo(new DinoNuggets()));
-                combos.Add(new CretaceousCombo(new PrehistoricPBJ()));
-                combos.Add(new CretaceousCombo(new PterodactylWings()));
-                combos.Add(new CretaceousCombo(new SteakosaurusBurger()));
-                combos.Add(new CretaceousCombo(new TRexKingBurger()));
-                combos.Add(new CretaceousCombo(new VelociWrap()));
+                foreach (IMenuItem item in AvailableMenuItems)
+                {
+                    if (item is CretaceousCombo combo)
+                        combos.Add(combo);
+                }
                 return combos;
             }
         }
@@ -117,13 +152,80 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             string result = "";
-            List<IMenuItem> items = AvailiableMenuItems;
+            List<IMenuItem> items = AvailableMenuItems;
             foreach(IMenuItem i in items)
             {
                 result += i.ToString();
                 result += "\n";
             }
             return result;
+        }
+
+        public static List<IMenuItem> Search(List<IMenuItem> items, string search)
+        {
+            List<IMenuItem> i = new List<IMenuItem>();
+            foreach(IMenuItem item in items)
+            {
+                if (item.ToString().ToLower().Contains(search.ToLower()))
+                {
+                    i.Add(item);
+                }
+            }
+            return i;
+        }
+
+        public static List<IMenuItem> FilterByCategory(List<IMenuItem> items, List<string> categories)
+        {
+            List<IMenuItem> i = new List<IMenuItem>();
+            foreach(IMenuItem item in items)
+            {
+                if (categories.Contains("Entree") && item is Entree)
+                {
+                    i.Add(item);
+                }
+
+                if (categories.Contains("Combo") && item is CretaceousCombo)
+                {
+                    i.Add(item);
+                }
+
+                if (categories.Contains("Side") && item is Side)
+                {
+                    i.Add(item);
+                }
+
+                if (categories.Contains("Drink") && item is Drink)
+                {
+                    i.Add(item);
+                }
+            }
+            return i;
+        }
+
+        public static List<IMenuItem> FilterByMinPrice(List<IMenuItem> items, float? minPrice)
+        {
+            List<IMenuItem> i = new List<IMenuItem>();
+            foreach (IMenuItem item in items)
+            {
+                if(item.Price > minPrice)
+                {
+                    i.Add(item);
+                }
+            }
+            return i;
+        }
+
+        public static List<IMenuItem> FilterByMaxPrice(List<IMenuItem> items, float? maxPrice)
+        {
+            List<IMenuItem> i = new List<IMenuItem>();
+            foreach (IMenuItem item in items)
+            {
+                if (item.Price < maxPrice)
+                {
+                    i.Add(item);
+                }
+            }
+            return i;
         }
     }
 }

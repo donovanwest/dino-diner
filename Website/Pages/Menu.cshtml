@@ -11,78 +11,126 @@
 
 <h1>Menu</h1>
 
+<div id="results">
+    <form method="post">
+        <input type="text" name="Search" id="Search" value="@Model.Search" />
+        <input type="submit" value="Search And Filter" />
+
+        <h2>Category</h2>
+        <label>
+            <input type="checkbox" name="CategoryFilter" value="Combo" checked="@Model.CategoryFilter.Contains("Combo")" />
+            Combo
+        </label>
+        <label>
+            <input type="checkbox" name="CategoryFilter" value="Entree" checked="@Model.CategoryFilter.Contains("Entree")" />
+            Entree
+        </label>
+        <label>
+            <input type="checkbox" name="CategoryFilter" value="Side" checked="@Model.CategoryFilter.Contains("Side")" />
+            Side
+        </label>
+        <label>
+            <input type="checkbox" name="CategoryFilter" value="Drink" checked="@Model.CategoryFilter.Contains("Drink")" />
+            Drink
+        </label>
+
+        <h2>Price</h2>
+        <label>
+            Minimum Price:
+            <input type="number" min="0" step="0.01" name="MinPrice" value="@Model.MinPrice" />
+        </label>
+
+        <label>
+            Maximum Price:
+            <input type="number" min="0" step="0.01" name="MaxPrice" value="@Model.MaxPrice" />
+        </label>
+    </form>
+</div>
 
 <h2>Entrees</h2>
 <div>
-	@foreach (Entree e in Model.Menu.AvailiableEntrees)
-	{
-		<div class="menu-item">
-			<div class="item-name">@e.ToString()</div>
-			<div class="subItem">@(e.Price.ToString("C2"))</div>
-			<div class="subItem">@(e.Calories + " Calories")</div>
-			<div class="subItem">
-				Ingredients:
-				@foreach (string i in e.Ingredients)
-				{
-					<div>@("---" + i)</div>
-				}
-			</div>
-		</div>
-	}
+	@foreach (IMenuItem i in Model.Items)
+    {
+        if (i is Entree e)
+        {
+		    <div class="menu-item">
+			    <div class="item-name">@e.ToString()</div>
+			    <div class="subItem">@(e.Price.ToString("C2"))</div>
+			    <div class="subItem">@(e.Calories + " Calories")</div>
+			    <div class="subItem">
+				    Ingredients:
+				    @foreach (string ing in e.Ingredients)
+                    {
+					    <div>@("---" + ing)</div>
+                    }
+			    </div>
+		    </div>
+        }
+    }
 </div>
 
 <h2>Combos</h2>
 <div>
-	@foreach (CretaceousCombo c in Model.Menu.AvailiableCombos)
-	{
-		<div class="menu-item">
-			<div class="item-name">@c.ToString()</div>
-			<div class="subItem">@(c.Price.ToString("C2"))</div>
-			<div class="subItem">@(c.Calories + " Calories")</div>
-			<div class="subItem">
-				Ingredients:
-				@foreach (string i in c.Ingredients)
-				{
-					<div>@("---" + i)</div>
-				}
-			</div>
-		</div>
-	}
+	@foreach (IMenuItem i in Model.Items)
+    {
+        if (i is CretaceousCombo c)
+        {
+		    <div class="menu-item">
+			    <div class="item-name">@c.ToString()</div>
+			    <div class="subItem">@(c.Price.ToString("C2"))</div>
+			    <div class="subItem">@(c.Calories + " Calories")</div>
+			    <div class="subItem">
+				    Ingredients:
+				    @foreach (string ing in c.Ingredients)
+                    {
+					    <div>@("---" + ing)</div>
+                    }
+			    </div>
+		    </div>
+        }
+    }
 </div>
 <h2>Drinks</h2>
 <div>
-	@foreach (Drink d in Model.Menu.AvailiableDrinks)
-	{
-		<div class="menu-item">
-			<div class="item-name">@d.ToString()</div>
-			<div class="subItem">@(d.Price.ToString("C2"))</div>
-			<div class="subItem">@(d.Calories + " Calories")</div>
-			<div class="subItem">
-				Ingredients:
-				@foreach (string i in d.Ingredients)
-				{
-					<div>@("---" + i)</div>
-				}
-			</div>
-		</div>
-	}
+	@foreach (IMenuItem i in Model.Items)
+    {
+        if (i is Drink d)
+        {
+		    <div class="menu-item">
+			    <div class="item-name">@d.ToString()</div>
+			    <div class="subItem">@(d.Price.ToString("C2"))</div>
+			    <div class="subItem">@(d.Calories + " Calories")</div>
+			    <div class="subItem">
+				    Ingredients:
+				    @foreach (string ing in d.Ingredients)
+                    {
+					    <div>@("---" + ing)</div>
+                    }
+			    </div>
+		    </div>
+        }
+    }
 </div>
 
 <h2>Sides</h2>
 <div>
-	@foreach (Side s in Model.Menu.AvailiableSides)
-	{
-		<div class="menu-item">
-			<div class="item-name">@s.ToString()</div>
-			<div class="subItem">@(s.Price.ToString("C2"))</div>
-			<div class="subItem">@(s.Calories + " Calories")</div>
-			<div class="subItem">
-				Ingredients:
-				@foreach (string i in s.Ingredients)
-				{
-					<div>@("---" + i)</div>
-				}
-			</div>
-		</div>
-	}
+	@foreach (IMenuItem i in Model.Items)
+    {
+        if (i is Side s)
+        {
+		    <div class="menu-item">
+			    <div class="item-name">@s.ToString()</div>
+			    <div class="subItem">@(s.Price.ToString("C2"))</div>
+			    <div class="subItem">@(s.Calories + " Calories")</div>
+			    <div class="subItem">
+				    Ingredients:
+				    @foreach (string ing in s.Ingredients)
+                    {
+					    <div>@("---" + ing)</div>
+                    }
+			    </div>
+		    </div>
+        }
+    }
 </div>
+
