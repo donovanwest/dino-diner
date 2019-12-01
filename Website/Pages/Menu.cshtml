@@ -12,39 +12,48 @@
 <h1>Menu</h1>
 
 <div id="results">
-    <form method="post">
-        <input type="text" name="Search" id="Search" value="@Model.Search" />
-        <input type="submit" value="Search And Filter" />
+	<form method="post">
+		<input type="text" name="Search" id="Search" value="@Model.Search" />
+		<input type="submit" value="Search And Filter" />
 
-        <h2>Category</h2>
-        <label>
-            <input type="checkbox" name="CategoryFilter" value="Combo" checked="@Model.CategoryFilter.Contains("Combo")" />
-            Combo
-        </label>
-        <label>
-            <input type="checkbox" name="CategoryFilter" value="Entree" checked="@Model.CategoryFilter.Contains("Entree")" />
-            Entree
-        </label>
-        <label>
-            <input type="checkbox" name="CategoryFilter" value="Side" checked="@Model.CategoryFilter.Contains("Side")" />
-            Side
-        </label>
-        <label>
-            <input type="checkbox" name="CategoryFilter" value="Drink" checked="@Model.CategoryFilter.Contains("Drink")" />
-            Drink
-        </label>
+		<h2>Category</h2>
+		<label>
+			<input type="checkbox" name="CategoryFilter" value="Combo" checked="@Model.CategoryFilter.Contains("Combo")" />
+			Combo
+		</label>
+		<label>
+			<input type="checkbox" name="CategoryFilter" value="Entree" checked="@Model.CategoryFilter.Contains("Entree")" />
+			Entree
+		</label>
+		<label>
+			<input type="checkbox" name="CategoryFilter" value="Side" checked="@Model.CategoryFilter.Contains("Side")" />
+			Side
+		</label>
+		<label>
+			<input type="checkbox" name="CategoryFilter" value="Drink" checked="@Model.CategoryFilter.Contains("Drink")" />
+			Drink
+		</label>
 
-        <h2>Price</h2>
-        <label>
-            Minimum Price:
-            <input type="number" min="0" step="0.01" name="MinPrice" value="@Model.MinPrice" />
-        </label>
+		<h2>Price</h2>
+		<label>
+			Minimum Price:
+			<input type="number" min="0" step="0.01" name="MinPrice" value="@Model.MinPrice" />
+		</label>
 
-        <label>
-            Maximum Price:
-            <input type="number" min="0" step="0.01" name="MaxPrice" value="@Model.MaxPrice" />
-        </label>
-    </form>
+		<label>
+			Maximum Price:
+			<input type="number" min="0" step="0.01" name="MaxPrice" value="@Model.MaxPrice" />
+		</label>
+
+		<h2>Ingredient(s) to Hide</h2>
+		@foreach (string ingredient in Model.PossibleIngredients)
+		{
+			<label>
+				<input type="checkbox" name="IngredientFilter" value="@ingredient" checked="@Model.IngredientFilter.Contains(ingredient)" />
+				@ingredient
+			</label>
+		}
+	</form>
 </div>
 
 <h2>Entrees</h2>

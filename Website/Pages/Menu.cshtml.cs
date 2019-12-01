@@ -14,6 +14,8 @@ namespace Website.Pages
 
         public List<IMenuItem> Items { get; set; }
 
+        public List<string> PossibleIngredients { get; set; }
+
         [BindProperty]
         public List<string> CategoryFilter { get; set; } = new List<string>();
 
@@ -26,14 +28,21 @@ namespace Website.Pages
         [BindProperty]
         public float? MaxPrice { get; set; }
 
+        [BindProperty]
+        public List<string> IngredientFilter { get; set; } = new List<string>();
+        
+
+
         public void OnGet()
         {
             Items = new Menu().AvailableMenuItems;
+            PossibleIngredients = new Menu().PossibleIngredients;
         }
 
         public void OnPost()
         {
             Items = new Menu().AvailableMenuItems;
+            PossibleIngredients = new Menu().PossibleIngredients;
 
             if (Search != null)
                 Items = Menu.Search(Items, Search);
@@ -46,7 +55,10 @@ namespace Website.Pages
 
             if (MaxPrice != null)
                 Items = Menu.FilterByMaxPrice(Items, MaxPrice);
+            if (IngredientFilter.Count > 0)
+                Items = Menu.FilterByIngredients(Items, IngredientFilter);
 
+            
             
             
         }

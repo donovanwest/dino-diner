@@ -2,7 +2,7 @@
 for details on configuring this project to bundle and minify static web assets. */
 form {
     background-color: lightgray;
-    width: 200px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     position: absolute;
