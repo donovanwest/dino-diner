@@ -12,7 +12,7 @@ namespace Website.Pages
     {
         //public Menu Menu { get; private set; }
 
-        public List<IMenuItem> Items { get; set; }
+        public IEnumerable<IMenuItem> Items { get; set; }
 
         public List<string> PossibleIngredients { get; set; }
 
@@ -45,18 +45,30 @@ namespace Website.Pages
             PossibleIngredients = new Menu().PossibleIngredients;
 
             if (Search != null)
-                Items = Menu.Search(Items, Search);
+                Items = Items.Where(item => item.ToString().Contains(Search, StringComparison.InvariantCultureIgnoreCase));
+            //Items = Menu.Search(Items, Search);
 
             if (CategoryFilter.Count > 0)
-                Items = Menu.FilterByCategory(Items, CategoryFilter);
+                Items = Items.Where(item => (item is Entree && CategoryFilter.Contains("Entree")) || (item is CretaceousCombo && CategoryFilter.Contains("Combo")) || (item is Side && CategoryFilter.Contains("Side")) || (item is Drink && CategoryFilter.Contains("Drink")));
+            //Items = Menu.FilterByCategory(Items, CategoryFilter);
 
             if (MinPrice != null)
-                Items = Menu.FilterByMinPrice(Items, MinPrice);
+                Items = Items.Where(item => item.Price >= MinPrice);
+                //Items = Menu.FilterByMinPrice(Items, MinPrice);
 
             if (MaxPrice != null)
-                Items = Menu.FilterByMaxPrice(Items, MaxPrice);
+                Items = Items.Where(item => item.Price <= MaxPrice);
+
+            //Items = Menu.FilterByMaxPrice(Items, MaxPrice);
+
             if (IngredientFilter.Count > 0)
-                Items = Menu.FilterByIngredients(Items, IngredientFilter);
+            {
+                foreach (string i in IngredientFilter) {
+                    Items = Items.Where(item => !item.Ingredients.Contains(i));
+                }
+
+            }
+                //Items = Menu.FilterByIngredients(Items, IngredientFilter);
 
             
             
